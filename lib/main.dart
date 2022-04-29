@@ -40,7 +40,7 @@ class MyHomePage extends StatelessWidget {
           'Best Brand',
           textAlign: TextAlign.center,
           style: GoogleFonts.montserrat(
-            textStyle: TextStyle(
+            textStyle: const TextStyle(
               color: Colors.black87,
             ),
             fontWeight: FontWeight.w900,
@@ -48,7 +48,99 @@ class MyHomePage extends StatelessWidget {
         ),
         backgroundColor: Color.fromARGB(0xF, 0x9, 0xF, 0x9),
       ),
-      body: Center(child: Text('Hello World')),
+      body: SafeArea(
+        child: Container(
+          padding: EdgeInsets.all(10),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                'Tawaran terbaik hari ini',
+                textAlign: TextAlign.left,
+                style: GoogleFonts.montserrat(
+                  textStyle: const TextStyle(
+                    color: Colors.black,
+                  ),
+                  fontWeight: FontWeight.w700,
+                ),
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              Card(
+                child: InkWell(
+                  splashColor: Colors.blue.withAlpha(30),
+                  onTap: () {},
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Row(
+                        children: [
+                          Flexible(
+                            child: Text(
+                              'KOODO Gecko 60% Layout RGB Mechanical Keyboard',
+                              textAlign: TextAlign.left,
+                              style: GoogleFonts.montserrat(
+                                textStyle: const TextStyle(
+                                  color: Colors.black,
+                                ),
+                                fontWeight: FontWeight.normal,
+                                fontSize: 15,
+                              ),
+                              softWrap: true,
+                            ),
+                          ),
+                          Icon(Icons.bookmark)
+                        ],
+                      ),
+                      Text(
+                        'Rp 490.000',
+                        textAlign: TextAlign.left,
+                        style: GoogleFonts.montserrat(
+                          textStyle: const TextStyle(
+                            color: Colors.black,
+                          ),
+                          fontWeight: FontWeight.bold,
+                          fontSize: 15,
+                        ),
+                      ),
+                      Text(
+                        'Rp 680.000',
+                        textAlign: TextAlign.left,
+                        style: GoogleFonts.montserrat(
+                          textStyle: const TextStyle(
+                            color: Colors.black45,
+                          ),
+                          fontWeight: FontWeight.normal,
+                          fontSize: 10,
+                          decoration: TextDecoration.lineThrough,
+                        ),
+                      ),
+                      Row(
+                        children: [
+                          Icon(Icons.star),
+                          Text(
+                            '4.9 (500)',
+                            textAlign: TextAlign.left,
+                            style: GoogleFonts.montserrat(
+                              textStyle: const TextStyle(
+                                color: Colors.black,
+                              ),
+                              fontWeight: FontWeight.bold,
+                              fontSize: 12,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+              )
+            ],
+          ),
+        ),
+      ),
       bottomNavigationBar: BottomNavigationBar(
         items: [
           BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
