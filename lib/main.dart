@@ -1,3 +1,4 @@
+import 'package:bestbrand/components/product.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -68,75 +69,7 @@ class MyHomePage extends StatelessWidget {
               SizedBox(
                 height: 10,
               ),
-              Card(
-                child: InkWell(
-                  splashColor: Colors.blue.withAlpha(30),
-                  onTap: () {},
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Row(
-                        children: [
-                          Flexible(
-                            child: Text(
-                              'KOODO Gecko 60% Layout RGB Mechanical Keyboard',
-                              textAlign: TextAlign.left,
-                              style: GoogleFonts.montserrat(
-                                textStyle: const TextStyle(
-                                  color: Colors.black,
-                                ),
-                                fontWeight: FontWeight.normal,
-                                fontSize: 15,
-                              ),
-                              softWrap: true,
-                            ),
-                          ),
-                          Icon(Icons.bookmark)
-                        ],
-                      ),
-                      Text(
-                        'Rp 490.000',
-                        textAlign: TextAlign.left,
-                        style: GoogleFonts.montserrat(
-                          textStyle: const TextStyle(
-                            color: Colors.black,
-                          ),
-                          fontWeight: FontWeight.bold,
-                          fontSize: 15,
-                        ),
-                      ),
-                      Text(
-                        'Rp 680.000',
-                        textAlign: TextAlign.left,
-                        style: GoogleFonts.montserrat(
-                          textStyle: const TextStyle(
-                            color: Colors.black45,
-                          ),
-                          fontWeight: FontWeight.normal,
-                          fontSize: 10,
-                          decoration: TextDecoration.lineThrough,
-                        ),
-                      ),
-                      Row(
-                        children: [
-                          Icon(Icons.star),
-                          Text(
-                            '4.9 (500)',
-                            textAlign: TextAlign.left,
-                            style: GoogleFonts.montserrat(
-                              textStyle: const TextStyle(
-                                color: Colors.black,
-                              ),
-                              fontWeight: FontWeight.bold,
-                              fontSize: 12,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
-                ),
-              )
+              Product(),
             ],
           ),
         ),
