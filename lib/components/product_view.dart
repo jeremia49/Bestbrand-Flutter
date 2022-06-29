@@ -1,10 +1,16 @@
+import 'package:bestbrand/models/product.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:loading_gifs/loading_gifs.dart';
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:intl/intl.dart';
+
+final formatCurrency =
+    new NumberFormat.simpleCurrency(locale: 'id_ID', decimalDigits: 0);
 
 class ProductView extends StatelessWidget {
-  const ProductView({Key? key}) : super(key: key);
+  final Product product;
+  const ProductView(this.product, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -21,33 +27,34 @@ class ProductView extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                Container(
-                  height: 150,
-                  width: double.infinity,
-                  clipBehavior: Clip.antiAlias,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(4),
-                  ),
-                  child: CachedNetworkImage(
-                    imageUrl:
-                        'https://images.tokopedia.net/img/cache/700/VqbcmM/2021/12/31/be6c7b3d-b698-4a3a-b36c-67f94ea2ce73.jpg.webp?ect=4g',
-                    imageBuilder: (context, imageProvider) => Container(
-                      decoration: BoxDecoration(
-                        image: DecorationImage(
-                          image: imageProvider,
-                          fit: BoxFit.fill,
+                Builder(builder: (context) {
+                  return Container(
+                    height: MediaQuery.of(context).size.height / 4.8,
+                    width: double.infinity,
+                    clipBehavior: Clip.antiAlias,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(4),
+                    ),
+                    child: CachedNetworkImage(
+                      imageUrl: product.imageUrl[0],
+                      imageBuilder: (context, imageProvider) => Container(
+                        decoration: BoxDecoration(
+                          image: DecorationImage(
+                            image: imageProvider,
+                            fit: BoxFit.fill,
+                          ),
                         ),
                       ),
+                      progressIndicatorBuilder:
+                          (context, url, downloadProgress) => Image.asset(
+                        cupertinoActivityIndicator,
+                        fit: BoxFit.contain,
+                      ),
+                      errorWidget: (context, url, error) => Icon(Icons.error),
                     ),
-                    progressIndicatorBuilder:
-                        (context, url, downloadProgress) => Image.asset(
-                      cupertinoActivityIndicator,
-                      fit: BoxFit.contain,
-                    ),
-                    errorWidget: (context, url, error) => Icon(Icons.error),
-                  ),
-                ),
-                Padding(
+                  );
+                }),
+                Container(
                   padding: EdgeInsets.all(5),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -57,7 +64,7 @@ class ProductView extends StatelessWidget {
                         children: [
                           Flexible(
                             child: Text(
-                              'KOODO Gecko 60% Layout RGB Mechanical Keyboard',
+                              product.name,
                               textAlign: TextAlign.left,
                               style: GoogleFonts.montserrat(
                                 textStyle: const TextStyle(
@@ -73,7 +80,9 @@ class ProductView extends StatelessWidget {
                         ],
                       ),
                       Text(
-                        'Rp 490.000',
+                        product.isPromo == false
+                            ? formatCurrency.format(product.harga)
+                            : formatCurrency.format(product.hargaPromo),
                         textAlign: TextAlign.left,
                         style: GoogleFonts.montserrat(
                           textStyle: const TextStyle(
@@ -83,18 +92,24 @@ class ProductView extends StatelessWidget {
                           fontSize: 15,
                         ),
                       ),
-                      Text(
-                        'Rp 680.000',
-                        textAlign: TextAlign.left,
-                        style: GoogleFonts.montserrat(
-                          textStyle: const TextStyle(
-                            color: Colors.black45,
-                          ),
-                          fontWeight: FontWeight.normal,
-                          fontSize: 10,
-                          decoration: TextDecoration.lineThrough,
-                        ),
-                      ),
+                      (() {
+                        if (product.isPromo) {
+                          return Text(
+                            formatCurrency.format(product.harga),
+                            textAlign: TextAlign.left,
+                            style: GoogleFonts.montserrat(
+                              textStyle: const TextStyle(
+                                color: Colors.black45,
+                              ),
+                              fontWeight: FontWeight.normal,
+                              fontSize: 10,
+                              decoration: TextDecoration.lineThrough,
+                            ),
+                          );
+                        } else {
+                          return SizedBox.shrink();
+                        }
+                      })(),
                       Row(
                         children: [
                           Icon(
@@ -102,7 +117,7 @@ class ProductView extends StatelessWidget {
                             color: Colors.yellow,
                           ),
                           Text(
-                            '4.9 (500)',
+                            '${product.rating} (${product.ratingCounter})',
                             textAlign: TextAlign.left,
                             style: GoogleFonts.montserrat(
                               textStyle: const TextStyle(
