@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'BEST-BRAND',
       theme: ThemeData(
         primarySwatch: Colors.grey,
       ),
@@ -70,23 +70,27 @@ class MyHomePage extends StatelessWidget {
               SizedBox(
                 height: 10,
               ),
-
               CarouselSlider(
-                options: CarouselOptions(),
-                items: [1,2,3,4,5].map((i) {
+                options: CarouselOptions(
+                  enableInfiniteScroll: true,
+                  height: 252,
+                  autoPlay: true,
+                ),
+                items: [1, 2, 3, 4, 5].map((i) {
                   return Builder(
                     builder: (BuildContext context) {
                       return Container(
-                          width: MediaQuery.of(context).size.width,
-                          margin: EdgeInsets.symmetric(horizontal: 5.0),
+                        width: MediaQuery.of(context).size.width,
+                        margin: EdgeInsets.symmetric(horizontal: 5.0),
+                        child: ConstrainedBox(
+                          constraints: BoxConstraints(maxWidth: 100),
                           child: Product(),
+                        ),
                       );
                     },
                   );
                 }).toList(),
               ),
-
-
             ],
           ),
         ),
