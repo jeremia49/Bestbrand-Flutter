@@ -1,4 +1,4 @@
-import 'package:bestbrand/components/product.dart';
+import 'package:bestbrand/components/product_view.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -63,53 +63,61 @@ class MyHomePage extends StatelessWidget {
                 style: GoogleFonts.montserrat(
                   textStyle: const TextStyle(
                     color: Colors.black,
+                    fontSize: 12,
                   ),
                   fontWeight: FontWeight.w700,
                 ),
               ),
               SizedBox(
-                height: 10,
+                height: 5,
               ),
-              CarouselSlider(
-                options: CarouselOptions(
-                  enableInfiniteScroll: true,
-                  height: 252,
-                  autoPlay: true,
-                ),
-                items: [1, 2, 3, 4, 5].map((i) {
-                  return Builder(
-                    builder: (BuildContext context) {
-                      return Container(
-                        width: MediaQuery.of(context).size.width,
-                        margin: EdgeInsets.symmetric(horizontal: 5.0),
-                        child: ConstrainedBox(
-                          constraints: BoxConstraints(maxWidth: 100),
-                          child: Product(),
-                        ),
+              Builder(
+                builder: (context) {
+                  final double height = MediaQuery.of(context).size.height / 3;
+                  return CarouselSlider(
+                    options: CarouselOptions(
+                      height: height,
+                      enableInfiniteScroll: true,
+                      viewportFraction: 1.0,
+                      enlargeCenterPage: false,
+                    ),
+                    items: [1, 2, 3, 4, 5].map((i) {
+                      return Builder(
+                        builder: (BuildContext context) {
+                          return Row(
+                            children: [
+                              ProductView(),
+                              SizedBox(
+                                width: 4,
+                              ),
+                              ProductView(),
+                            ],
+                          );
+                        },
                       );
-                    },
+                    }).toList(),
                   );
-                }).toList(),
+                },
               ),
             ],
           ),
         ),
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        items: [
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
-          BottomNavigationBarItem(icon: Icon(Icons.search), label: 'Search'),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.shopping_cart), label: 'Cart'),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.account_circle_rounded), label: 'My Account'),
-        ],
-        backgroundColor: Colors.grey,
-        selectedItemColor: Colors.blue,
-        showSelectedLabels: true,
-        showUnselectedLabels: false,
-        unselectedItemColor: Colors.black,
-      ),
+      // bottomNavigationBar: BottomNavigationBar(
+      //   items: [
+      //     BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
+      //     BottomNavigationBarItem(icon: Icon(Icons.search), label: 'Search'),
+      //     BottomNavigationBarItem(
+      //         icon: Icon(Icons.shopping_cart), label: 'Cart'),
+      //     BottomNavigationBarItem(
+      //         icon: Icon(Icons.account_circle_rounded), label: 'My Account'),
+      //   ],
+      //   backgroundColor: Colors.grey,
+      //   selectedItemColor: Colors.blue,
+      //   showSelectedLabels: true,
+      //   showUnselectedLabels: false,
+      //   unselectedItemColor: Colors.black,
+      // ),
     );
   }
 }
