@@ -3,6 +3,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:carousel_slider/carousel_slider.dart';
 
 void main() {
   LicenseRegistry.addLicense(() async* {
@@ -69,7 +70,23 @@ class MyHomePage extends StatelessWidget {
               SizedBox(
                 height: 10,
               ),
-              Product(),
+
+              CarouselSlider(
+                options: CarouselOptions(),
+                items: [1,2,3,4,5].map((i) {
+                  return Builder(
+                    builder: (BuildContext context) {
+                      return Container(
+                          width: MediaQuery.of(context).size.width,
+                          margin: EdgeInsets.symmetric(horizontal: 5.0),
+                          child: Product(),
+                      );
+                    },
+                  );
+                }).toList(),
+              ),
+
+
             ],
           ),
         ),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:loading_gifs/loading_gifs.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 
 class Product extends StatelessWidget {
   const Product({Key? key}) : super(key: key);
@@ -11,7 +12,9 @@ class Product extends StatelessWidget {
       color: Color.fromARGB(255, 244, 255, 247),
       child: InkWell(
         splashColor: Colors.blue.withAlpha(30),
-        onTap: () {},
+        onTap: () {
+          print('Hello World');
+        },
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           mainAxisAlignment: MainAxisAlignment.start,
@@ -23,11 +26,23 @@ class Product extends StatelessWidget {
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(4),
               ),
-              child: FadeInImage.assetNetwork(
-                placeholder: cupertinoActivityIndicatorSmall,
-                image:
+              child: CachedNetworkImage(
+                imageUrl:
                     'https://images.tokopedia.net/img/cache/700/VqbcmM/2021/12/31/be6c7b3d-b698-4a3a-b36c-67f94ea2ce73.jpg.webp?ect=4g',
-                fit: BoxFit.fill,
+                imageBuilder: (context, imageProvider) => Container(
+                  decoration: BoxDecoration(
+                    image: DecorationImage(
+                      image: imageProvider,
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                ),
+                progressIndicatorBuilder: (context, url, downloadProgress) =>
+                    Image.asset(
+                  cupertinoActivityIndicator,
+                  fit: BoxFit.contain,
+                ),
+                errorWidget: (context, url, error) => Icon(Icons.error),
               ),
             ),
             Padding(
