@@ -5,11 +5,11 @@ import 'package:google_fonts/google_fonts.dart';
 
 import '../models/product.dart';
 
-class HomeLayout extends StatelessWidget {
+class HomePage extends StatelessWidget {
   final List<Product> list;
 
-  const HomeLayout({
-    required this.list,
+  const HomePage(
+    this.list, {
     Key? key,
   }) : super(key: key);
 
