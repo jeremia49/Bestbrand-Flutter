@@ -71,6 +71,101 @@ Kompatible ke semua keyboard Sades
     rating: 4.8,
     ratingCounter: 60,
   ),
+  Product(
+    'Sades Rainbow Mechanical Keyboard Cap',
+    135000,
+    '''Sades Rainbow Keycap untuk kustom keyboard mechanical anda
+terdiri dari 37 key.
+Warna: Rainbow
+Kompatible ke semua keyboard Sades
+''',
+    [
+      'https://images.tokopedia.net/img/cache/900/VqbcmM/2022/2/19/4adf8569-ced6-49c4-8c35-3ca873e267c4.jpg',
+      'https://images.tokopedia.net/img/cache/900/VqbcmM/2022/2/19/b2b48789-221b-4bd1-866a-163b25a9a34e.jpg',
+      'https://images.tokopedia.net/img/cache/900/VqbcmM/2022/2/19/c1bf2116-4802-4bcd-b1a3-c3efe0bcf47b.jpg',
+      'https://images.tokopedia.net/img/cache/900/VqbcmM/2022/2/19/218458f2-f895-4ce1-98cd-9614a35e9363.jpg',
+    ],
+    isPromo: true,
+    hargaPromo: 120000,
+    rating: 4.8,
+    ratingCounter: 60,
+  ),
+  Product(
+    'Sades Rainbow Mechanical Keyboard Cap',
+    135000,
+    '''Sades Rainbow Keycap untuk kustom keyboard mechanical anda
+terdiri dari 37 key.
+Warna: Rainbow
+Kompatible ke semua keyboard Sades
+''',
+    [
+      'https://images.tokopedia.net/img/cache/900/VqbcmM/2022/2/19/4adf8569-ced6-49c4-8c35-3ca873e267c4.jpg',
+      'https://images.tokopedia.net/img/cache/900/VqbcmM/2022/2/19/b2b48789-221b-4bd1-866a-163b25a9a34e.jpg',
+      'https://images.tokopedia.net/img/cache/900/VqbcmM/2022/2/19/c1bf2116-4802-4bcd-b1a3-c3efe0bcf47b.jpg',
+      'https://images.tokopedia.net/img/cache/900/VqbcmM/2022/2/19/218458f2-f895-4ce1-98cd-9614a35e9363.jpg',
+    ],
+    isPromo: true,
+    hargaPromo: 120000,
+    rating: 4.8,
+    ratingCounter: 60,
+  ),
+  Product(
+    'Sades Rainbow Mechanical Keyboard Cap',
+    135000,
+    '''Sades Rainbow Keycap untuk kustom keyboard mechanical anda
+terdiri dari 37 key.
+Warna: Rainbow
+Kompatible ke semua keyboard Sades
+''',
+    [
+      'https://images.tokopedia.net/img/cache/900/VqbcmM/2022/2/19/4adf8569-ced6-49c4-8c35-3ca873e267c4.jpg',
+      'https://images.tokopedia.net/img/cache/900/VqbcmM/2022/2/19/b2b48789-221b-4bd1-866a-163b25a9a34e.jpg',
+      'https://images.tokopedia.net/img/cache/900/VqbcmM/2022/2/19/c1bf2116-4802-4bcd-b1a3-c3efe0bcf47b.jpg',
+      'https://images.tokopedia.net/img/cache/900/VqbcmM/2022/2/19/218458f2-f895-4ce1-98cd-9614a35e9363.jpg',
+    ],
+    isPromo: true,
+    hargaPromo: 120000,
+    rating: 4.8,
+    ratingCounter: 60,
+  ),
+  Product(
+    'Sades Rainbow Mechanical Keyboard Cap',
+    135000,
+    '''Sades Rainbow Keycap untuk kustom keyboard mechanical anda
+terdiri dari 37 key.
+Warna: Rainbow
+Kompatible ke semua keyboard Sades
+''',
+    [
+      'https://images.tokopedia.net/img/cache/900/VqbcmM/2022/2/19/4adf8569-ced6-49c4-8c35-3ca873e267c4.jpg',
+      'https://images.tokopedia.net/img/cache/900/VqbcmM/2022/2/19/b2b48789-221b-4bd1-866a-163b25a9a34e.jpg',
+      'https://images.tokopedia.net/img/cache/900/VqbcmM/2022/2/19/c1bf2116-4802-4bcd-b1a3-c3efe0bcf47b.jpg',
+      'https://images.tokopedia.net/img/cache/900/VqbcmM/2022/2/19/218458f2-f895-4ce1-98cd-9614a35e9363.jpg',
+    ],
+    isPromo: true,
+    hargaPromo: 120000,
+    rating: 4.8,
+    ratingCounter: 60,
+  ),
+  Product(
+    'Sades Rainbow Mechanical Keyboard Cap',
+    135000,
+    '''Sades Rainbow Keycap untuk kustom keyboard mechanical anda
+terdiri dari 37 key.
+Warna: Rainbow
+Kompatible ke semua keyboard Sades
+''',
+    [
+      'https://images.tokopedia.net/img/cache/900/VqbcmM/2022/2/19/4adf8569-ced6-49c4-8c35-3ca873e267c4.jpg',
+      'https://images.tokopedia.net/img/cache/900/VqbcmM/2022/2/19/b2b48789-221b-4bd1-866a-163b25a9a34e.jpg',
+      'https://images.tokopedia.net/img/cache/900/VqbcmM/2022/2/19/c1bf2116-4802-4bcd-b1a3-c3efe0bcf47b.jpg',
+      'https://images.tokopedia.net/img/cache/900/VqbcmM/2022/2/19/218458f2-f895-4ce1-98cd-9614a35e9363.jpg',
+    ],
+    isPromo: true,
+    hargaPromo: 120000,
+    rating: 4.8,
+    ratingCounter: 60,
+  ),
 ];
 
 class MyApp extends StatelessWidget {
