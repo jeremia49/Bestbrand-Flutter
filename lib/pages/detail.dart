@@ -1,5 +1,5 @@
-import 'package:bestbrand/components/slider_detail_view.dart';
 import 'package:flutter/material.dart';
+import 'package:bestbrand/components/slider_detail_view.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:loading_gifs/loading_gifs.dart';
@@ -176,7 +176,7 @@ class DetailPage extends StatelessWidget {
                 padding: EdgeInsets.fromLTRB(16.w, 5.h, 16.w, 0),
                 child: ReadMoreText(
                   product.description,
-                  trimLines: 3,
+                  trimLines: 2,
                   colorClickableText: Colors.pink,
                   trimMode: TrimMode.Line,
                   trimCollapsedText: ' Show more',
@@ -194,7 +194,7 @@ class DetailPage extends StatelessWidget {
                 padding: EdgeInsets.fromLTRB(16.w, 10.h, 16.w, 10.h),
                 child: ElevatedButton.icon(
                   onPressed: () {},
-                  icon: Icon(Icons.add_shopping_cart),
+                  icon: const Icon(Icons.add_shopping_cart),
                   label: Text('Tambah ke Keranjang'),
                 ),
               ),

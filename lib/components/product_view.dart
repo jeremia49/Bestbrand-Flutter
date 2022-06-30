@@ -5,6 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:loading_gifs/loading_gifs.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:intl/intl.dart';
 
 final formatCurrency =
@@ -79,7 +80,7 @@ class ProductView extends StatelessWidget {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Flexible(
-                                child: Text(
+                                child: AutoSizeText(
                                   product.name,
                                   textAlign: TextAlign.left,
                                   style: GoogleFonts.montserrat(
@@ -89,16 +90,18 @@ class ProductView extends StatelessWidget {
                                     fontWeight: FontWeight.normal,
                                     fontSize: 13.sp,
                                   ),
-                                  softWrap: true,
+                                  maxLines: 4,
                                   overflow: TextOverflow.ellipsis,
-                                  maxLines: 3,
                                 ),
                               ),
                               IconButton(
                                 onPressed: () {
                                   print('added to bookmark');
                                 },
-                                icon: const Icon(Icons.bookmark),
+                                icon: Icon(
+                                  Icons.bookmark,
+                                  size: 20.sp,
+                                ),
                               )
                             ],
                           ),
@@ -136,7 +139,7 @@ class ProductView extends StatelessWidget {
                                 ),
                               );
                             } else {
-                              return SizedBox.shrink();
+                              return const SizedBox.shrink();
                             }
                           })(),
                           SizedBox(

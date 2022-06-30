@@ -24,25 +24,55 @@ class HomePage extends StatelessWidget {
           'Tawaran terbaik hari ini',
           textAlign: TextAlign.left,
           style: GoogleFonts.montserrat(
-            textStyle: const TextStyle(
+            textStyle: TextStyle(
               color: Colors.black,
-              fontSize: 16,
+              fontSize: 18.sp,
             ),
             fontWeight: FontWeight.w700,
           ),
         ),
-        SizedBox(
+        const SizedBox(
           height: 5,
         ),
         Builder(
           builder: (context) {
             return CarouselSlider(
               options: CarouselOptions(
-                height: 265.h,
+                height: 300.h,
                 enableInfiniteScroll: true,
                 viewportFraction: 0.35,
                 enlargeCenterPage: false,
                 autoPlay: true,
+              ),
+              items: list.map((e) {
+                return ProductView(e);
+              }).toList(),
+            );
+          },
+        ),
+        SizedBox(
+          height: 10.h,
+        ),
+        Text(
+          'Teknologi dan Perangkat Komputer',
+          textAlign: TextAlign.left,
+          style: GoogleFonts.montserrat(
+            textStyle: TextStyle(
+              color: Colors.black,
+              fontSize: 18.sp,
+            ),
+            fontWeight: FontWeight.w700,
+          ),
+        ),
+        Builder(
+          builder: (context) {
+            return CarouselSlider(
+              options: CarouselOptions(
+                height: 300.h,
+                enableInfiniteScroll: true,
+                viewportFraction: 0.35,
+                enlargeCenterPage: false,
+                autoPlay: false,
               ),
               items: list.map((e) {
                 return ProductView(e);
