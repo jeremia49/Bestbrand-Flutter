@@ -1,3 +1,4 @@
+import 'package:bestbrand/pages/cart.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:bestbrand/pages/home.dart';
 import 'package:bestbrand/pages/search.dart';
@@ -144,11 +145,13 @@ List<String> titles = [
   'PENCARIAN',
   'CART',
   'AKUNKU',
+  'WISHLIST',
 ];
 
 List<Widget> pages = [
   HomePage(productList),
   SearchPage(productList),
+  CartPage(productList),
 ];
 
 class MyHomePage extends StatelessWidget {
