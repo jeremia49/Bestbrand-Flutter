@@ -5,6 +5,8 @@ import 'package:loading_gifs/loading_gifs.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import 'detail.dart';
+
 class CartPage extends StatelessWidget {
   final List<Product> list;
   const CartPage(this.list, {Key? key}) : super(key: key);
@@ -18,10 +20,18 @@ class CartPage extends StatelessWidget {
         Expanded(
             child: ListView.separated(
           separatorBuilder: (context, index) => Divider(
-            height: 10.h,
+            height: 20,
             color: Colors.black,
           ),
           itemBuilder: (context, item) => ListTile(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => DetailPage(list[item]),
+                ),
+              );
+            },
             leading: CachedNetworkImage(
               imageUrl: list[item].imageUrl[0],
               imageBuilder: (context, imageProvider) => SizedBox(
@@ -41,7 +51,7 @@ class CartPage extends StatelessWidget {
                 cupertinoActivityIndicator,
                 fit: BoxFit.contain,
               ),
-              errorWidget: (context, url, error) => Icon(Icons.error),
+              errorWidget: (context, url, error) => const Icon(Icons.error),
             ),
             title: Text(list[item].name),
             trailing: IconButton(
