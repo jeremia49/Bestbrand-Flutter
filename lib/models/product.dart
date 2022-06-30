@@ -1,4 +1,5 @@
 class Product {
+  int id;
   String name;
   int harga;
   int hargaPromo;
@@ -9,6 +10,7 @@ class Product {
   int ratingCounter;
 
   Product(
+    this.id,
     this.name,
     this.harga,
     this.description,

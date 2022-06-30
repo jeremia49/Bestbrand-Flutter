@@ -25,7 +25,7 @@ class HomePage extends StatelessWidget {
           style: GoogleFonts.montserrat(
             textStyle: const TextStyle(
               color: Colors.black,
-              fontSize: 12,
+              fontSize: 16,
             ),
             fontWeight: FontWeight.w700,
           ),
@@ -36,35 +36,16 @@ class HomePage extends StatelessWidget {
         Builder(
           builder: (context) {
             return CarouselSlider(
-                options: CarouselOptions(
-                  enableInfiniteScroll: false,
-                  viewportFraction: 1.0,
-                  enlargeCenterPage: false,
-                ),
-                items: (() {
-                  List<Widget> carousel = [];
-                  for (int i = 0; i < list.length; i++) {
-                    carousel.add(Row(
-                      children: [
-                        ProductView(list[i]),
-                        SizedBox(
-                          width: 4,
-                        ),
-                        (() {
-                          if ((i + 1) != list.length) {
-                            i++;
-                            return ProductView(list[i]);
-                          } else {
-                            return SizedBox(
-                              width: 250,
-                            );
-                          }
-                        })(),
-                      ],
-                    ));
-                  }
-                  return carousel;
-                })());
+              options: CarouselOptions(
+                enableInfiniteScroll: true,
+                viewportFraction: 0.5,
+                enlargeCenterPage: false,
+                autoPlay: true,
+              ),
+              items: list.map((e) {
+                return ProductView(e);
+              }).toList(),
+            );
           },
         ),
       ],

@@ -1,4 +1,5 @@
 import 'package:bestbrand/models/product.dart';
+import 'package:bestbrand/pages/detail.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:loading_gifs/loading_gifs.dart';
@@ -15,21 +16,30 @@ class ProductView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Expanded(
-      child: Container(
-        child: Card(
-          color: Color.fromARGB(255, 244, 255, 247),
-          child: InkWell(
-            splashColor: Colors.blue.withAlpha(30),
-            onTap: () {
-              print('Hello World');
-            },
-            child: Column(
+      child: Card(
+        color: Color.fromARGB(255, 244, 255, 247),
+        child: InkWell(
+          splashColor: Colors.blue.withAlpha(30),
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => DetailPage(product),
+              ),
+            );
+          },
+          child: ListTile(
+            subtitle: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               mainAxisAlignment: MainAxisAlignment.start,
+              mainAxisSize: MainAxisSize.min,
               children: [
+                SizedBox(
+                  height: 5,
+                ),
                 Builder(builder: (context) {
                   return Container(
-                    height: MediaQuery.of(context).size.height / 4.8,
+                    height: MediaQuery.of(context).size.height * 0.2,
                     width: double.infinity,
                     clipBehavior: Clip.antiAlias,
                     decoration: BoxDecoration(
@@ -54,83 +64,95 @@ class ProductView extends StatelessWidget {
                     ),
                   );
                 }),
-                Container(
-                  padding: EdgeInsets.all(5),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Row(
+                Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Container(
+                      padding: EdgeInsets.all(5),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.start,
                         children: [
-                          Flexible(
-                            child: Text(
-                              product.name,
-                              textAlign: TextAlign.left,
-                              style: GoogleFonts.montserrat(
-                                textStyle: const TextStyle(
-                                  color: Colors.black,
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Flexible(
+                                child: Text(
+                                  product.name,
+                                  textAlign: TextAlign.left,
+                                  style: GoogleFonts.montserrat(
+                                    textStyle: const TextStyle(
+                                      color: Colors.black,
+                                    ),
+                                    fontWeight: FontWeight.normal,
+                                    fontSize: 15,
+                                  ),
+                                  softWrap: true,
                                 ),
-                                fontWeight: FontWeight.normal,
-                                fontSize: 15,
                               ),
-                              softWrap: true,
-                            ),
-                          ),
-                          Icon(Icons.bookmark)
-                        ],
-                      ),
-                      Text(
-                        product.isPromo == false
-                            ? formatCurrency.format(product.harga)
-                            : formatCurrency.format(product.hargaPromo),
-                        textAlign: TextAlign.left,
-                        style: GoogleFonts.montserrat(
-                          textStyle: const TextStyle(
-                            color: Colors.black,
-                          ),
-                          fontWeight: FontWeight.bold,
-                          fontSize: 15,
-                        ),
-                      ),
-                      (() {
-                        if (product.isPromo) {
-                          return Text(
-                            formatCurrency.format(product.harga),
-                            textAlign: TextAlign.left,
-                            style: GoogleFonts.montserrat(
-                              textStyle: const TextStyle(
-                                color: Colors.black45,
-                              ),
-                              fontWeight: FontWeight.normal,
-                              fontSize: 10,
-                              decoration: TextDecoration.lineThrough,
-                            ),
-                          );
-                        } else {
-                          return SizedBox.shrink();
-                        }
-                      })(),
-                      Row(
-                        children: [
-                          Icon(
-                            Icons.star_outlined,
-                            color: Colors.yellow,
+                              IconButton(
+                                onPressed: () {
+                                  print('added to bookmark');
+                                },
+                                icon: const Icon(Icons.bookmark),
+                              )
+                            ],
                           ),
                           Text(
-                            '${product.rating} (${product.ratingCounter})',
+                            product.isPromo == false
+                                ? formatCurrency.format(product.harga)
+                                : formatCurrency.format(product.hargaPromo),
                             textAlign: TextAlign.left,
                             style: GoogleFonts.montserrat(
                               textStyle: const TextStyle(
                                 color: Colors.black,
                               ),
                               fontWeight: FontWeight.bold,
-                              fontSize: 12,
+                              fontSize: 15,
                             ),
+                          ),
+                          (() {
+                            if (product.isPromo) {
+                              return Text(
+                                formatCurrency.format(product.harga),
+                                textAlign: TextAlign.left,
+                                style: GoogleFonts.montserrat(
+                                  textStyle: const TextStyle(
+                                    color: Colors.black45,
+                                  ),
+                                  fontWeight: FontWeight.normal,
+                                  fontSize: 10,
+                                  decoration: TextDecoration.lineThrough,
+                                ),
+                              );
+                            } else {
+                              return SizedBox.shrink();
+                            }
+                          })(),
+                          Row(
+                            children: [
+                              Icon(
+                                Icons.star_outlined,
+                                color: Colors.yellow,
+                              ),
+                              Text(
+                                '${product.rating} (${product.ratingCounter})',
+                                textAlign: TextAlign.left,
+                                style: GoogleFonts.montserrat(
+                                  textStyle: const TextStyle(
+                                    color: Colors.black,
+                                  ),
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 12,
+                                ),
+                              ),
+                            ],
                           ),
                         ],
                       ),
-                    ],
-                  ),
+                    ),
+                  ],
                 )
               ],
             ),

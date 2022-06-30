@@ -29,37 +29,31 @@ class SearchPage extends StatelessWidget {
         ),
         Expanded(
           child: Padding(
-            padding: EdgeInsets.all(15),
+            padding: EdgeInsets.fromLTRB(5, 2, 5, 0),
             child: Column(
               children: [
-                Padding(
-                  padding: const EdgeInsets.all(15.0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      TextButton.icon(
-                          onPressed: null,
-                          icon: Icon(Icons.filter_alt_outlined),
-                          label: Text('Filter')),
-                      TextButton.icon(
-                          onPressed: null,
-                          icon: Icon(Icons.sort_by_alpha_outlined),
-                          label: Text('Sort')),
-                    ],
-                  ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    TextButton.icon(
+                        onPressed: null,
+                        icon: Icon(Icons.filter_alt_outlined),
+                        label: Text('Filter')),
+                    TextButton.icon(
+                        onPressed: null,
+                        icon: Icon(Icons.sort_by_alpha_outlined),
+                        label: Text('Sort')),
+                  ],
                 ),
                 Expanded(
-                  child: Padding(
-                    padding: const EdgeInsets.all(16.0),
-                    child: AlignedGridView.count(
-                      itemCount: list.length,
-                      crossAxisCount: list.length,
-                      mainAxisSpacing: 16,
-                      crossAxisSpacing: 16,
-                      itemBuilder: (context, index) {
-                        return ProductView(list[index]);
-                      },
-                    ),
+                  child: AlignedGridView.count(
+                    itemCount: list.length,
+                    crossAxisCount: 2,
+                    mainAxisSpacing: 16,
+                    crossAxisSpacing: 16,
+                    itemBuilder: (context, index) {
+                      return ProductView(list[index]);
+                    },
                   ),
                 )
               ],
