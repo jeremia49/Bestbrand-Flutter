@@ -4,10 +4,11 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:loading_gifs/loading_gifs.dart';
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:intl/intl.dart';
 
 final formatCurrency =
-    new NumberFormat.simpleCurrency(locale: 'id_ID', decimalDigits: 0);
+    NumberFormat.simpleCurrency(locale: 'id_ID', decimalDigits: 0);
 
 class ProductView extends StatelessWidget {
   final Product product;
@@ -35,12 +36,12 @@ class ProductView extends StatelessWidget {
               mainAxisSize: MainAxisSize.min,
               children: [
                 SizedBox(
-                  height: 5,
+                  height: 5.h,
                 ),
                 Builder(builder: (context) {
                   return Container(
-                    height: MediaQuery.of(context).size.height * 0.2,
-                    width: double.infinity,
+                    height: 128.h,
+                    width: 124.w,
                     clipBehavior: Clip.antiAlias,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(4),
@@ -51,7 +52,7 @@ class ProductView extends StatelessWidget {
                         decoration: BoxDecoration(
                           image: DecorationImage(
                             image: imageProvider,
-                            fit: BoxFit.fill,
+                            fit: BoxFit.contain,
                           ),
                         ),
                       ),
@@ -68,7 +69,7 @@ class ProductView extends StatelessWidget {
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     Container(
-                      padding: EdgeInsets.all(5),
+                      padding: const EdgeInsets.all(5),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         mainAxisAlignment: MainAxisAlignment.start,
@@ -86,9 +87,11 @@ class ProductView extends StatelessWidget {
                                       color: Colors.black,
                                     ),
                                     fontWeight: FontWeight.normal,
-                                    fontSize: 15,
+                                    fontSize: 13.sp,
                                   ),
                                   softWrap: true,
+                                  overflow: TextOverflow.ellipsis,
+                                  maxLines: 3,
                                 ),
                               ),
                               IconButton(
@@ -98,6 +101,9 @@ class ProductView extends StatelessWidget {
                                 icon: const Icon(Icons.bookmark),
                               )
                             ],
+                          ),
+                          SizedBox(
+                            height: 5.h,
                           ),
                           Text(
                             product.isPromo == false
@@ -109,8 +115,11 @@ class ProductView extends StatelessWidget {
                                 color: Colors.black,
                               ),
                               fontWeight: FontWeight.bold,
-                              fontSize: 15,
+                              fontSize: 15.sp,
                             ),
+                          ),
+                          SizedBox(
+                            height: 2.h,
                           ),
                           (() {
                             if (product.isPromo) {
@@ -122,7 +131,7 @@ class ProductView extends StatelessWidget {
                                     color: Colors.black45,
                                   ),
                                   fontWeight: FontWeight.normal,
-                                  fontSize: 10,
+                                  fontSize: 13.sp,
                                   decoration: TextDecoration.lineThrough,
                                 ),
                               );
@@ -130,11 +139,15 @@ class ProductView extends StatelessWidget {
                               return SizedBox.shrink();
                             }
                           })(),
+                          SizedBox(
+                            height: 5.h,
+                          ),
                           Row(
                             children: [
                               Icon(
                                 Icons.star_outlined,
                                 color: Colors.yellow,
+                                size: 14.sp,
                               ),
                               Text(
                                 '${product.rating} (${product.ratingCounter})',
@@ -144,7 +157,7 @@ class ProductView extends StatelessWidget {
                                     color: Colors.black,
                                   ),
                                   fontWeight: FontWeight.bold,
-                                  fontSize: 12,
+                                  fontSize: 12.sp,
                                 ),
                               ),
                             ],

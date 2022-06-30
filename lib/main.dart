@@ -1,3 +1,4 @@
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:bestbrand/pages/home.dart';
 import 'package:bestbrand/pages/search.dart';
 import 'package:bestbrand/provider/menu.dart';
@@ -29,7 +30,7 @@ void main() {
 List<Product> productList = [
   Product(
     1,
-    'KOODO Gecko 60% Layout RGB Mechanical Keyboard',
+    'KOODO Gecko 60% Layout RGB Mechanical KeyboardAHAEHEATHAETHEATIHONEATIHNEATIHNEATOHEATNHOEATHNOEATOEATRNBEAO EATROTRGHAETROTHG EAROHEARHOEAR HOEAHEAO',
     680000,
     '''KOODO Gecko Series memiliki bentuk yang lebih compact dan portable dengan Layout 60% sehingga sangat cocok untuk kamu yang tidak suka dengan Mechanical Keyboard berukuran besar.
 Gecko Series juga sudah dilengkapi dengan teknologi Bluetooth 5.0 sehingga kamu dapat menikmatin pengalaman gaming tanpa kabel (Wireless) dengan delay yang sangat minim (Very-Low Latency).
@@ -120,12 +121,20 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp(
-      title: 'BEST-BRAND',
-      theme: ThemeData(
-        primarySwatch: Colors.grey,
-      ),
-      home: MyHomePage(),
+    return ScreenUtilInit(
+      designSize: const Size(428, 926),
+      minTextAdapt: true,
+      builder: (context, child) {
+        return GetMaterialApp(
+          title: 'BEST-BRAND',
+          theme: ThemeData(
+            primarySwatch: Colors.grey,
+            textTheme: Typography.englishLike2018.apply(fontSizeFactor: 1.sp),
+          ),
+          home: child,
+        );
+      },
+      child: const MyHomePage(),
     );
   }
 }
