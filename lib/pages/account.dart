@@ -32,8 +32,8 @@ void action(BuildContext context, int item) {
       );
       break;
     case 2:
-      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-          content: Text('Mohon maaf, fitur ini masih dalam pengembangan')));
+      ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(content: Text('Anda berhasil keluar !')));
       break;
     default:
   }

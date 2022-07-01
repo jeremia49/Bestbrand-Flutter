@@ -54,32 +54,30 @@ class BookmarkPage extends StatelessWidget {
             Expanded(
               child: Padding(
                 padding: const EdgeInsets.fromLTRB(5, 2, 5, 0),
-                child: Expanded(
-                  child: Obx(
-                    () => AlignedGridView.count(
-                      itemCount: bookmarkController.bookmarkList.length,
-                      crossAxisCount: 2,
-                      mainAxisSpacing: 16,
-                      crossAxisSpacing: 16,
-                      itemBuilder: (context, index) {
-                        return ProductView(
-                          productController.productList.firstWhere(
-                            (element) =>
-                                element.id ==
-                                bookmarkController.bookmarkList[index].id,
-                          ),
-                          additionalWidget: Column(
-                              mainAxisAlignment: MainAxisAlignment.end,
-                              children: [
-                                SizedBox(
-                                  height: 6.h,
-                                ),
-                                Text(
-                                    'Bookmarked at : ${bookmarkController.bookmarkList[index].bookmarkedAt}')
-                              ]),
-                        );
-                      },
-                    ),
+                child: Obx(
+                  () => AlignedGridView.count(
+                    itemCount: bookmarkController.bookmarkList.length,
+                    crossAxisCount: 2,
+                    mainAxisSpacing: 16,
+                    crossAxisSpacing: 16,
+                    itemBuilder: (context, index) {
+                      return ProductView(
+                        productController.productList.firstWhere(
+                          (element) =>
+                              element.id ==
+                              bookmarkController.bookmarkList[index].id,
+                        ),
+                        additionalWidget: Column(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                              SizedBox(
+                                height: 6.h,
+                              ),
+                              Text(
+                                  'Bookmarked at : ${bookmarkController.bookmarkList[index].bookmarkedAt}')
+                            ]),
+                      );
+                    },
                   ),
                 ),
               ),
