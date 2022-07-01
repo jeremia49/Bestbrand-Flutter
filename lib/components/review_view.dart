@@ -6,6 +6,7 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
+import '../main.dart';
 import '../pages/detail.dart';
 import '../provider/nightmode.dart';
 
@@ -216,6 +217,11 @@ class ReviewView extends StatelessWidget {
                                 stars = 0;
                                 txt = '';
                                 Navigator.of(context).pop();
+                                Navigator.of(context).pushAndRemoveUntil(
+                                    MaterialPageRoute(
+                                      builder: (context) => MyHomePage(),
+                                    ),
+                                    (Route<dynamic> route) => false);
                                 Navigator.push(
                                   context,
                                   MaterialPageRoute(

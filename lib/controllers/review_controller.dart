@@ -26,7 +26,7 @@ class ReviewController extends GetxController {
       return 0.0;
     }
     int sum = review.fold(0, (sum, element) => sum + element.stars);
-    return sum / review.length;
+    return double.parse((sum / review.length).toStringAsFixed(2));
   }
 
   int getRateCount(int id) {
