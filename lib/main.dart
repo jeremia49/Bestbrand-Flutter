@@ -1,3 +1,4 @@
+import 'package:bestbrand/pages/account.dart';
 import 'package:bestbrand/pages/cart.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:bestbrand/pages/home.dart';
@@ -11,6 +12,7 @@ import 'package:provider/provider.dart';
 import 'package:get/get.dart';
 
 import 'models/product.dart';
+import 'pages/bookmark.dart';
 
 void main() {
   LicenseRegistry.addLicense(() async* {
@@ -145,13 +147,14 @@ List<String> titles = [
   'PENCARIAN',
   'CART',
   'AKUNKU',
-  'WISHLIST',
+  'BOOKMARK',
 ];
 
 List<Widget> pages = [
   HomePage(productList),
   SearchPage(productList),
   CartPage(productList),
+  const AccountPage(),
 ];
 
 class MyHomePage extends StatelessWidget {

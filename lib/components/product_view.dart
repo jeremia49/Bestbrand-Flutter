@@ -19,7 +19,7 @@ class ProductView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Expanded(
       child: Card(
-        color: Color.fromARGB(255, 244, 255, 247),
+        color: const Color.fromARGB(255, 244, 255, 247),
         child: InkWell(
           splashColor: Colors.blue.withAlpha(30),
           onTap: () {
@@ -88,10 +88,14 @@ class ProductView extends StatelessWidget {
                                       color: Colors.black,
                                     ),
                                     fontWeight: FontWeight.normal,
-                                    fontSize: 13.sp,
                                   ),
                                   maxLines: 4,
                                   overflow: TextOverflow.ellipsis,
+                                  presetFontSizes: [
+                                    15.sp,
+                                    14.sp,
+                                    13.sp,
+                                  ],
                                 ),
                               ),
                               IconButton(
@@ -99,8 +103,9 @@ class ProductView extends StatelessWidget {
                                   print('added to bookmark');
                                 },
                                 icon: Icon(
-                                  Icons.bookmark,
+                                  Icons.bookmark_outline,
                                   size: 20.sp,
+                                  color: Colors.black,
                                 ),
                               )
                             ],

@@ -8,6 +8,7 @@ class Product {
   List<String> imageUrl;
   double rating;
   int ratingCounter;
+  List<String> tag;
 
   Product(
     this.id,
@@ -19,5 +20,6 @@ class Product {
     this.isPromo = false,
     this.rating = 0.0,
     this.ratingCounter = 0,
+    this.tag = const [],
   });
 }
