@@ -28,13 +28,13 @@ void main() {
         ChangeNotifierProvider(create: (_) => MenuProvider()),
         ChangeNotifierProvider(create: (_) => NightModeProvider()),
       ],
-      child: const MyApp(),
+      child: MyApp(),
     ),
   );
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+  MyApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -56,7 +56,7 @@ class MyApp extends StatelessWidget {
           home: child,
         );
       },
-      child: const MyHomePage(),
+      child: MyHomePage(),
     );
   }
 }
@@ -72,11 +72,11 @@ List<Widget> pages = [
   HomePage(),
   SearchPage(),
   CartPage(),
-  const AccountPage(),
+  AccountPage(),
 ];
 
 class MyHomePage extends StatelessWidget {
-  const MyHomePage({Key? key}) : super(key: key);
+  MyHomePage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

@@ -9,7 +9,7 @@ import '../controllers/product_controller.dart';
 import '../models/product.dart';
 
 class SearchPage extends StatefulWidget {
-  const SearchPage({
+  SearchPage({
     Key? key,
   }) : super(key: key);
 

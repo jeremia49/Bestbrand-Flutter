@@ -10,7 +10,7 @@ import '../controllers/product_controller.dart';
 import '../models/product.dart';
 
 class HomePage extends StatelessWidget {
-  const HomePage({
+  HomePage({
     Key? key,
   }) : super(key: key);
 
@@ -74,7 +74,7 @@ class HomePage extends StatelessWidget {
           SizedBox(
             height: 5.h,
           ),
-          const OptionalProduct(),
+          OptionalProduct(),
           SizedBox(
             height: 15.h,
           ),

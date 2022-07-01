@@ -15,7 +15,7 @@ final formatCurrency =
     NumberFormat.simpleCurrency(locale: 'id_ID', decimalDigits: 0);
 
 class CartPage extends StatelessWidget {
-  const CartPage({Key? key}) : super(key: key);
+  CartPage({Key? key}) : super(key: key);
 
   int getPrice(Product product) {
     if (product.isPromo) {

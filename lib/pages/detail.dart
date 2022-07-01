@@ -226,7 +226,8 @@ class DetailPage extends StatelessWidget {
                     context.read<MenuProvider>().setMenu(2);
                     Navigator.of(context).pushAndRemoveUntil(
                         MaterialPageRoute(
-                            builder: (context) => const MyHomePage()),
+                          builder: (context) => MyHomePage(),
+                        ),
                         (Route<dynamic> route) => false);
                   },
                   icon: const Icon(Icons.add_shopping_cart),

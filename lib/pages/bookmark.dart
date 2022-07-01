@@ -10,7 +10,7 @@ import '../controllers/product_controller.dart';
 import '../models/product.dart';
 
 class BookmarkPage extends StatelessWidget {
-  const BookmarkPage({Key? key}) : super(key: key);
+  BookmarkPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

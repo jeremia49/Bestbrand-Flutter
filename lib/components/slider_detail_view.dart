@@ -6,7 +6,7 @@ import 'package:loading_gifs/loading_gifs.dart';
 class SliderImageDetail extends StatefulWidget {
   final List<String> imgList;
 
-  const SliderImageDetail(this.imgList, {Key? key}) : super(key: key);
+  SliderImageDetail(this.imgList, {Key? key}) : super(key: key);
 
   @override
   State<StatefulWidget> createState() {

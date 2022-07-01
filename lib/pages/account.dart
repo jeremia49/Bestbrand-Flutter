@@ -19,7 +19,7 @@ void action(BuildContext context, int item) {
       Navigator.push(
         context,
         MaterialPageRoute(
-          builder: (context) => const SettingPage(),
+          builder: (context) => SettingPage(),
         ),
       );
       break;
@@ -27,7 +27,7 @@ void action(BuildContext context, int item) {
       Navigator.push(
         context,
         MaterialPageRoute(
-          builder: (context) => const BookmarkPage(),
+          builder: (context) => BookmarkPage(),
         ),
       );
       break;
@@ -40,7 +40,7 @@ void action(BuildContext context, int item) {
 }
 
 class AccountPage extends StatelessWidget {
-  const AccountPage({Key? key}) : super(key: key);
+  AccountPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
