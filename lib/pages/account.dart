@@ -1,4 +1,4 @@
-import 'package:bestbrand/main.dart';
+import 'package:bestbrand/dummy_data.dart';
 import 'package:bestbrand/pages/bookmark.dart';
 import 'package:bestbrand/pages/setting.dart';
 import 'package:google_fonts/google_fonts.dart';

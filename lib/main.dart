@@ -11,7 +11,6 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:bestbrand/dummy_data.dart';
-import 'models/product.dart';
 
 void main() {
   LicenseRegistry.addLicense(() async* {
@@ -89,7 +88,7 @@ class MyHomePage extends StatelessWidget {
       ),
       body: SafeArea(
         child: Container(
-          padding: EdgeInsets.all(10),
+          padding: const EdgeInsets.all(10),
           child: pages[context.watch<MenuProvider>().menu],
         ),
       ),
