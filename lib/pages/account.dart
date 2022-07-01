@@ -1,4 +1,3 @@
-import 'package:bestbrand/dummy_data.dart';
 import 'package:bestbrand/pages/bookmark.dart';
 import 'package:bestbrand/pages/setting.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -12,7 +11,6 @@ const List<String> list = [
   'Pengaturan',
   'Bookmark',
   'Keluar',
-  'Reset',
 ];
 
 void action(BuildContext context, int item) {
@@ -21,7 +19,7 @@ void action(BuildContext context, int item) {
       Navigator.push(
         context,
         MaterialPageRoute(
-          builder: (context) => SettingPage(),
+          builder: (context) => const SettingPage(),
         ),
       );
       break;
@@ -29,16 +27,12 @@ void action(BuildContext context, int item) {
       Navigator.push(
         context,
         MaterialPageRoute(
-          builder: (context) => BookmarkPage(productList),
+          builder: (context) => const BookmarkPage(),
         ),
       );
       break;
     case 2:
-      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-          content: Text('Mohon maaf, fitur ini masih dalam pengembangan')));
-      break;
-    case 3:
-      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
           content: Text('Mohon maaf, fitur ini masih dalam pengembangan')));
       break;
     default:

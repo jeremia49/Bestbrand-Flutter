@@ -10,8 +10,7 @@ import '../controllers/product_controller.dart';
 import '../models/product.dart';
 
 class BookmarkPage extends StatelessWidget {
-  final List<Product> list;
-  const BookmarkPage(this.list, {Key? key}) : super(key: key);
+  const BookmarkPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -54,7 +53,7 @@ class BookmarkPage extends StatelessWidget {
             ),
             Expanded(
               child: Padding(
-                padding: EdgeInsets.fromLTRB(5, 2, 5, 0),
+                padding: const EdgeInsets.fromLTRB(5, 2, 5, 0),
                 child: Expanded(
                   child: Obx(
                     () => AlignedGridView.count(

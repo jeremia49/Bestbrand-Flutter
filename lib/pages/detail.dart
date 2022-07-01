@@ -1,3 +1,4 @@
+import 'package:bestbrand/main.dart';
 import 'package:flutter/material.dart';
 import 'package:bestbrand/components/slider_detail_view.dart';
 import 'package:get/get.dart';
@@ -6,10 +7,13 @@ import 'package:loading_gifs/loading_gifs.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:intl/intl.dart';
+import 'package:provider/provider.dart';
 import 'package:readmore/readmore.dart';
 
 import '../controllers/bookmark_controller.dart';
+import '../controllers/cart_controller.dart';
 import '../models/product.dart';
+import '../provider/menu.dart';
 
 final formatCurrency =
     NumberFormat.simpleCurrency(locale: 'id_ID', decimalDigits: 0);
@@ -24,6 +28,8 @@ class DetailPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final BookmarkController bookmarkController = Get.find();
+    final CartController cartController = Get.find();
+
     return WillPopScope(
       onWillPop: () {
         SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual,
@@ -213,11 +219,19 @@ class DetailPage extends StatelessWidget {
               Padding(
                 padding: EdgeInsets.fromLTRB(16.w, 10.h, 16.w, 10.h),
                 child: ElevatedButton.icon(
-                  onPressed: () {},
+                  onPressed: () {
+                    cartController.addProduct(product.id);
+                    context.read<MenuProvider>().setMenu(2);
+                    Navigator.of(context).pushAndRemoveUntil(
+                        MaterialPageRoute(
+                            builder: (context) => const MyHomePage()),
+                        (Route<dynamic> route) => false);
+                  },
                   icon: const Icon(Icons.add_shopping_cart),
                   label: Text('Tambah ke Keranjang'),
                 ),
               ),
+              const SizedBox.shrink(),
             ],
           ),
         ),

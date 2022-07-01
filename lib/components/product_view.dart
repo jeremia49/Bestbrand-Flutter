@@ -184,7 +184,7 @@ class ProductView extends StatelessWidget {
                               ),
                             ],
                           ),
-                          additionalWidget ?? SizedBox.shrink(),
+                          additionalWidget ?? const SizedBox.shrink(),
                         ],
                       ),
                     ),

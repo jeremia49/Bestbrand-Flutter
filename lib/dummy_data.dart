@@ -1,4 +1,5 @@
 import 'package:bestbrand/models/bookmark.dart';
+import 'package:bestbrand/models/cart.dart';
 import 'package:bestbrand/models/product.dart';
 
 List<Product> productList = [
@@ -366,3 +367,8 @@ Harga sudah termasuk PPN, kami dapat terbitkan faktur pajak apabila dibutuhkan.
 ];
 
 List<Bookmark> bookmarkList = [];
+List<Cart> cartList = [
+  Cart(1, quantity: 1),
+  Cart(3, quantity: 2),
+  Cart(5, quantity: 3),
+];

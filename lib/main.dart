@@ -1,4 +1,5 @@
 import 'package:bestbrand/controllers/bookmark_controller.dart';
+import 'package:bestbrand/controllers/cart_controller.dart';
 import 'package:bestbrand/controllers/product_controller.dart';
 import 'package:bestbrand/pages/account.dart';
 import 'package:bestbrand/pages/cart.dart';
@@ -13,7 +14,6 @@ import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'package:bestbrand/dummy_data.dart';
 
 void main() {
   LicenseRegistry.addLicense(() async* {
@@ -39,6 +39,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     Get.put(ProductController());
     Get.put(BookmarkController());
+    Get.put(CartController());
 
     return ScreenUtilInit(
       designSize: const Size(428, 926),
@@ -68,7 +69,7 @@ List<String> titles = [
 List<Widget> pages = [
   HomePage(),
   SearchPage(),
-  CartPage(productList),
+  CartPage(),
   const AccountPage(),
 ];
 
