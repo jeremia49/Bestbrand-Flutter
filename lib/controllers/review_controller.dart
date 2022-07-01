@@ -32,4 +32,8 @@ class ReviewController extends GetxController {
   int getRateCount(int id) {
     return reviewList.where((p1) => p1.id == id).toList().length;
   }
+
+  List<Review> getReviewById(int id) {
+    return reviewList.where((p1) => p1.id == id).toList();
+  }
 }

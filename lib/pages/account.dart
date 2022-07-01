@@ -76,38 +76,39 @@ class AccountPage extends StatelessWidget {
           height: 50.h,
         ),
         Expanded(
-            child: ListView.separated(
-          separatorBuilder: (context, index) => Divider(
-            height: 20,
-            color: context.watch<NightModeProvider>().nightmode
-                ? Colors.white
-                : Colors.black,
-          ),
-          itemBuilder: (context, item) => ListTile(
-            onTap: () {
-              action(context, item);
-            },
-            title: Text(
-              list[item],
-              style: GoogleFonts.montserrat(
-                textStyle: TextStyle(
-                  color: context.watch<NightModeProvider>().nightmode
-                      ? Colors.white
-                      : Colors.black,
-                  fontSize: 14.sp,
-                ),
-                fontWeight: FontWeight.normal,
-              ),
+          child: ListView.separated(
+            separatorBuilder: (context, index) => Divider(
+              height: 20,
+              color: context.watch<NightModeProvider>().nightmode
+                  ? Colors.white
+                  : Colors.black,
             ),
-            trailing: IconButton(
-              icon: const Icon(Icons.navigate_next),
-              onPressed: () {
+            itemBuilder: (context, item) => ListTile(
+              onTap: () {
                 action(context, item);
               },
+              title: Text(
+                list[item],
+                style: GoogleFonts.montserrat(
+                  textStyle: TextStyle(
+                    color: context.watch<NightModeProvider>().nightmode
+                        ? Colors.white
+                        : Colors.black,
+                    fontSize: 14.sp,
+                  ),
+                  fontWeight: FontWeight.normal,
+                ),
+              ),
+              trailing: IconButton(
+                icon: const Icon(Icons.navigate_next),
+                onPressed: () {
+                  action(context, item);
+                },
+              ),
             ),
+            itemCount: list.length,
           ),
-          itemCount: list.length,
-        ))
+        )
       ],
     );
   }

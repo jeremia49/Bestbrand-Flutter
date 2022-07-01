@@ -1,10 +1,10 @@
+import 'package:bestbrand/components/review_view.dart';
 import 'package:bestbrand/controllers/review_controller.dart';
 import 'package:bestbrand/main.dart';
 import 'package:flutter/material.dart';
 import 'package:bestbrand/components/slider_detail_view.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:loading_gifs/loading_gifs.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:intl/intl.dart';
@@ -231,10 +231,11 @@ class DetailPage extends StatelessWidget {
                         (Route<dynamic> route) => false);
                   },
                   icon: const Icon(Icons.add_shopping_cart),
-                  label: Text('Tambah ke Keranjang'),
+                  label: const Text('Tambah ke Keranjang'),
                 ),
               ),
               const SizedBox.shrink(),
+              ReviewView(product.id)
             ],
           ),
         ),
