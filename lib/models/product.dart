@@ -6,8 +6,6 @@ class Product {
   bool isPromo;
   String description;
   List<String> imageUrl;
-  double rating;
-  int ratingCounter;
   List<String> tag;
   Map<String, String> externalStore;
 
@@ -19,8 +17,6 @@ class Product {
     this.imageUrl, {
     this.hargaPromo = 0,
     this.isPromo = false,
-    this.rating = 0.0,
-    this.ratingCounter = 0,
     this.tag = const [],
     this.externalStore = const {},
   });

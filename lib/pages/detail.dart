@@ -1,3 +1,4 @@
+import 'package:bestbrand/controllers/review_controller.dart';
 import 'package:bestbrand/main.dart';
 import 'package:flutter/material.dart';
 import 'package:bestbrand/components/slider_detail_view.dart';
@@ -29,6 +30,7 @@ class DetailPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final BookmarkController bookmarkController = Get.find();
     final CartController cartController = Get.find();
+    final ReviewController reviewController = Get.find();
 
     return WillPopScope(
       onWillPop: () {
@@ -88,7 +90,7 @@ class DetailPage extends StatelessWidget {
                           size: 24.sp.toDouble(),
                         ),
                         Text(
-                          '${product.rating} (${product.ratingCounter})',
+                          '${reviewController.getRating(product.id)} (${reviewController.getRateCount(product.id)})',
                           textAlign: TextAlign.left,
                           style: GoogleFonts.montserrat(
                             textStyle: const TextStyle(

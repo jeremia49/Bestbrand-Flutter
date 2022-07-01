@@ -10,6 +10,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:intl/intl.dart';
 
+import '../controllers/review_controller.dart';
+
 final formatCurrency =
     NumberFormat.simpleCurrency(locale: 'id_ID', decimalDigits: 0);
 
@@ -22,6 +24,8 @@ class ProductView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final BookmarkController bookmarkController = Get.find();
+    final ReviewController reviewController = Get.find();
+
     return Expanded(
       child: Card(
         color: const Color.fromARGB(255, 244, 255, 247),
@@ -172,7 +176,7 @@ class ProductView extends StatelessWidget {
                                 size: 14.sp,
                               ),
                               Text(
-                                '${product.rating} (${product.ratingCounter})',
+                                '${reviewController.getRating(product.id)} (${reviewController.getRateCount(product.id)})',
                                 textAlign: TextAlign.left,
                                 style: GoogleFonts.montserrat(
                                   textStyle: const TextStyle(

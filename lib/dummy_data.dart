@@ -2,6 +2,8 @@ import 'package:bestbrand/models/bookmark.dart';
 import 'package:bestbrand/models/cart.dart';
 import 'package:bestbrand/models/product.dart';
 
+import 'models/review.dart';
+
 List<Product> productList = [
   Product(
     1,
@@ -26,8 +28,6 @@ Specification :
     ],
     isPromo: true,
     hargaPromo: 490000,
-    rating: 4.9,
-    ratingCounter: 500,
     externalStore: {
       "tokopedia":
           "https://www.tokopedia.com/koodo/koodo-gecko-60-layout-rgb-mechanical-keyboard-outemu-white-case-outemu-red",
@@ -69,8 +69,6 @@ https://drive.google.com/file/d/1MiuIW-jASxi43awLCaCwhzQVeYSluqKT/view?usp=shari
       'https://images.tokopedia.net/img/cache/900/VqbcmM/2021/9/15/e130fe25-f55b-46fd-a688-d26595620b19.jpg',
       'https://images.tokopedia.net/img/cache/900/VqbcmM/2021/9/15/1f3f9a72-c74d-4dd5-8c69-e85f8fb4379d.jpg',
     ],
-    rating: 4.5,
-    ratingCounter: 11,
     tag: [
       'keyboard',
     ],
@@ -141,8 +139,6 @@ Cable Premium coiled aviatorType-C
       'https://images.tokopedia.net/img/cache/900/VqbcmM/2021/9/22/2c352a61-7e1a-4f8d-a0de-aea77a72c1f1.jpg',
       'https://images.tokopedia.net/img/cache/900/VqbcmM/2021/9/22/5193b4b8-fd89-46ce-bcb3-1a8a6e2791a9.jpg',
     ],
-    rating: 4.8,
-    ratingCounter: 10,
     tag: [
       'keyboard',
       'diskon',
@@ -193,8 +189,6 @@ A power nap does wonders for boosting memory, learning, creativity, energy, and 
       'https://images.tokopedia.net/img/cache/900/VqbcmM/2022/3/16/268b9aa7-0479-447c-8977-58dcb06ea40c.jpg',
       'https://images.tokopedia.net/img/cache/900/VqbcmM/2021/8/20/9686e004-dc98-47d8-a5f2-287681ba6d5f.jpg',
     ],
-    rating: 5,
-    ratingCounter: 409,
     tag: ['kursi', 'diskon'],
     isPromo: true,
     hargaPromo: 2600000,
@@ -282,8 +276,6 @@ Dapat diperpanjang hingga 5 tahun
       'https://images.tokopedia.net/img/cache/900/VqbcmM/2022/3/31/6a284e89-951f-494b-b803-9c0ee789a7ab.jpg',
       'https://images.tokopedia.net/img/cache/900/VqbcmM/2022/5/10/2e755cd1-c120-4193-999a-368fa356863e.jpg'
     ],
-    rating: 4.9,
-    ratingCounter: 33,
     tag: ['kursi', 'diskon'],
     isPromo: true,
     hargaPromo: 7800000,
@@ -347,8 +339,6 @@ Harga sudah termasuk PPN, kami dapat terbitkan faktur pajak apabila dibutuhkan.
       'https://images.tokopedia.net/img/cache/900/VqbcmM/2022/3/19/125d65ef-7f75-42a9-84a5-eea2b6da08a3.jpg',
       'https://images.tokopedia.net/img/cache/900/VqbcmM/2022/3/19/beaac7b8-4e10-437c-9569-6bf08ec5348c.jpg',
     ],
-    rating: 4.8,
-    ratingCounter: 12,
     tag: [
       'kursi',
       'diskon',
@@ -366,9 +356,16 @@ Harga sudah termasuk PPN, kami dapat terbitkan faktur pajak apabila dibutuhkan.
   ),
 ];
 
-List<Bookmark> bookmarkList = [];
+List<Bookmark> bookmarkList = [
+  // Bookmark(1),
+  // Bookmark(5),
+];
 List<Cart> cartList = [
-  Cart(1, quantity: 1),
-  Cart(3, quantity: 2),
-  Cart(5, quantity: 3),
+  // Cart(1, quantity: 1),
+  // Cart(3, quantity: 2),
+  // Cart(5, quantity: 3),
+];
+List<Review> reviewList = [
+  Review(1, 4, 'Bagus'),
+  Review(1, 5, 'Bagus Sekali'),
 ];

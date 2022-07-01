@@ -1,6 +1,7 @@
 import 'package:bestbrand/controllers/bookmark_controller.dart';
 import 'package:bestbrand/controllers/cart_controller.dart';
 import 'package:bestbrand/controllers/product_controller.dart';
+import 'package:bestbrand/controllers/review_controller.dart';
 import 'package:bestbrand/pages/account.dart';
 import 'package:bestbrand/pages/cart.dart';
 import 'package:bestbrand/provider/nightmode.dart';
@@ -40,6 +41,7 @@ class MyApp extends StatelessWidget {
     Get.put(ProductController());
     Get.put(BookmarkController());
     Get.put(CartController());
+    Get.put(ReviewController());
 
     return ScreenUtilInit(
       designSize: const Size(428, 926),
