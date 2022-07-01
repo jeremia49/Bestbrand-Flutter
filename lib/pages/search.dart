@@ -157,6 +157,58 @@ class _SearchPageState extends State<SearchPage> {
                                         });
                                         Navigator.of(context).pop();
                                       },
+                                    ),
+                                    SizedBox(
+                                      width: 10.w,
+                                    ),
+                                    FilterChip(
+                                      selected: filter == 'keyboard',
+                                      label: Text(
+                                        'Keyboard',
+                                        style: GoogleFonts.montserrat(
+                                          textStyle: TextStyle(
+                                            color: Colors.black,
+                                            fontSize: 15.sp,
+                                          ),
+                                          fontWeight: FontWeight.normal,
+                                        ),
+                                      ),
+                                      onSelected: (bool value) {
+                                        setState(() {
+                                          if (filter == 'keyboard') {
+                                            filter = null;
+                                          } else {
+                                            filter = 'keyboard';
+                                          }
+                                        });
+                                        Navigator.of(context).pop();
+                                      },
+                                    ),
+                                    SizedBox(
+                                      width: 10.w,
+                                    ),
+                                    FilterChip(
+                                      selected: filter == 'kursi',
+                                      label: Text(
+                                        'Kursi',
+                                        style: GoogleFonts.montserrat(
+                                          textStyle: TextStyle(
+                                            color: Colors.black,
+                                            fontSize: 15.sp,
+                                          ),
+                                          fontWeight: FontWeight.normal,
+                                        ),
+                                      ),
+                                      onSelected: (bool value) {
+                                        setState(() {
+                                          if (filter == 'kursi') {
+                                            filter = null;
+                                          } else {
+                                            filter = 'kursi';
+                                          }
+                                        });
+                                        Navigator.of(context).pop();
+                                      },
                                     )
                                   ],
                                 ),
@@ -279,7 +331,7 @@ class _SearchPageState extends State<SearchPage> {
                                     FilterChip(
                                       selected: sort == true,
                                       label: Text(
-                                        'Menurun',
+                                        'Menaik',
                                         style: GoogleFonts.montserrat(
                                           textStyle: TextStyle(
                                             color: Colors.black,
@@ -305,7 +357,7 @@ class _SearchPageState extends State<SearchPage> {
                                     FilterChip(
                                       selected: sort == false,
                                       label: Text(
-                                        'Menaik',
+                                        'Menurun',
                                         style: GoogleFonts.montserrat(
                                           textStyle: TextStyle(
                                             color: Colors.black,

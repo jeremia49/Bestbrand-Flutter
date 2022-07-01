@@ -9,6 +9,7 @@ class Product {
   double rating;
   int ratingCounter;
   List<String> tag;
+  Map<String, String> externalStore;
 
   Product(
     this.id,
@@ -21,5 +22,6 @@ class Product {
     this.rating = 0.0,
     this.ratingCounter = 0,
     this.tag = const [],
+    this.externalStore = const {},
   });
 }

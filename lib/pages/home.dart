@@ -48,7 +48,10 @@ class HomePage extends StatelessWidget {
                   enlargeCenterPage: false,
                   autoPlay: true,
                 ),
-                items: productController.productList.map((e) {
+                items: productController.productList
+                    .where((p0) => p0.isPromo == true)
+                    .toList()
+                    .map((e) {
                   return ProductView(e);
                 }).toList(),
               );
@@ -76,7 +79,7 @@ class HomePage extends StatelessWidget {
             height: 15.h,
           ),
           Text(
-            'Komputer',
+            'Keyboard',
             textAlign: TextAlign.left,
             style: GoogleFonts.montserrat(
               textStyle: TextStyle(
@@ -99,7 +102,10 @@ class HomePage extends StatelessWidget {
                   enlargeCenterPage: false,
                   autoPlay: false,
                 ),
-                items: productController.productList.map((e) {
+                items: productController.productList
+                    .where((p0) => p0.tag.contains('keyboard'))
+                    .toList()
+                    .map((e) {
                   return ProductView(e);
                 }).toList(),
               );
@@ -132,7 +138,10 @@ class HomePage extends StatelessWidget {
                   enlargeCenterPage: false,
                   autoPlay: false,
                 ),
-                items: productController.productList.map((e) {
+                items: productController.productList
+                    .where((p0) => p0.tag.contains('kursi'))
+                    .toList()
+                    .map((e) {
                   return ProductView(e);
                 }).toList(),
               );
@@ -140,36 +149,6 @@ class HomePage extends StatelessWidget {
           ),
           SizedBox(
             height: 15.h,
-          ),
-          Text(
-            'Elektronik',
-            textAlign: TextAlign.left,
-            style: GoogleFonts.montserrat(
-              textStyle: TextStyle(
-                color: Colors.black,
-                fontSize: 18.sp,
-              ),
-              fontWeight: FontWeight.w700,
-            ),
-          ),
-          SizedBox(
-            height: 5.h,
-          ),
-          Builder(
-            builder: (context) {
-              return CarouselSlider(
-                options: CarouselOptions(
-                  height: 300.h,
-                  enableInfiniteScroll: true,
-                  viewportFraction: 0.4,
-                  enlargeCenterPage: false,
-                  autoPlay: false,
-                ),
-                items: productController.productList.map((e) {
-                  return ProductView(e);
-                }).toList(),
-              );
-            },
           ),
         ],
       ),

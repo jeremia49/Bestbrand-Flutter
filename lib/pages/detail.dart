@@ -191,13 +191,19 @@ class DetailPage extends StatelessWidget {
                 child: ReadMoreText(
                   product.description,
                   trimLines: 2,
-                  colorClickableText: Colors.pink,
                   trimMode: TrimMode.Line,
                   trimCollapsedText: ' Show more',
-                  trimExpandedText: ' Show less',
+                  trimExpandedText: '\nShow less',
                   moreStyle: GoogleFonts.montserrat(
                     textStyle: const TextStyle(
-                      color: Colors.black,
+                      color: Colors.red,
+                    ),
+                    fontWeight: FontWeight.normal,
+                    fontSize: 13.sp,
+                  ),
+                  lessStyle: GoogleFonts.montserrat(
+                    textStyle: const TextStyle(
+                      color: Colors.red,
                     ),
                     fontWeight: FontWeight.normal,
                     fontSize: 13.sp,
