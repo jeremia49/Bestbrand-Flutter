@@ -115,7 +115,7 @@ class HomePage extends StatelessWidget {
             height: 15.h,
           ),
           Text(
-            'Kursi Gaming',
+            'Kursi',
             textAlign: TextAlign.left,
             style: GoogleFonts.montserrat(
               textStyle: TextStyle(
