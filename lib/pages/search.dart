@@ -1,3 +1,4 @@
+import 'package:bestbrand/dummy_data.dart';
 import 'package:flutter/material.dart';
 import 'package:bestbrand/components/product_view.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
@@ -6,27 +7,55 @@ import 'package:get/get.dart';
 import '../controllers/product_controller.dart';
 import '../models/product.dart';
 
-class SearchPage extends StatelessWidget {
+class SearchPage extends StatefulWidget {
   const SearchPage({
     Key? key,
   }) : super(key: key);
 
   @override
+  State<SearchPage> createState() => _SearchPageState();
+}
+
+class _SearchPageState extends State<SearchPage> {
+  late List<Product> result;
+  String searchquery = '';
+
+  List<Product> searchq(List<Product> productList, String searchquery) {
+    final query = searchquery.toLowerCase();
+    return productList.where((e) {
+      final namaProduk = e.name.toLowerCase();
+      return namaProduk.contains(query);
+    }).toList();
+  }
+
+  @override
   Widget build(BuildContext context) {
     final ProductController productController = Get.find();
+    if (searchquery.isEmpty) {
+      result = productController.productList;
+    }
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       mainAxisAlignment: MainAxisAlignment.start,
       mainAxisSize: MainAxisSize.max,
       children: [
-        const TextField(
-          decoration: InputDecoration(
-            prefixIcon: Icon(
-              Icons.search,
-              color: Colors.black,
-            ),
-            border: OutlineInputBorder(),
-          ),
+        TextField(
+          decoration: const InputDecoration(
+              prefixIcon: Icon(
+                Icons.search,
+                color: Colors.black,
+              ),
+              border: OutlineInputBorder(),
+              hintText: 'Ketik produk yang anda cari ...'),
+          onChanged: ((e) {
+            setState(
+              () {
+                searchquery = e;
+                result = List.of(searchq(productController.productList, e));
+              },
+            );
+          }),
         ),
         Expanded(
           child: Padding(
@@ -48,20 +77,25 @@ class SearchPage extends StatelessWidget {
                 ),
                 Expanded(
                   child: AlignedGridView.count(
-                    itemCount: productController.productList.length,
+                    itemCount: result.length,
                     crossAxisCount: 2,
                     mainAxisSpacing: 16,
                     crossAxisSpacing: 16,
                     itemBuilder: (context, index) {
-                      return ProductView(productController.productList[index]);
+                      return ProductView(result[index]);
                     },
                   ),
-                )
+                ),
               ],
             ),
           ),
         )
       ],
     );
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
   }
 }
