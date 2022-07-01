@@ -1,22 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:bestbrand/components/product_view.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../components/optional_product.dart';
+import '../controllers/product_controller.dart';
 import '../models/product.dart';
 
 class HomePage extends StatelessWidget {
-  final List<Product> list;
-
-  const HomePage(
-    this.list, {
+  const HomePage({
     Key? key,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final ProductController productController = Get.find();
+
     return SingleChildScrollView(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
@@ -47,7 +48,7 @@ class HomePage extends StatelessWidget {
                   enlargeCenterPage: false,
                   autoPlay: true,
                 ),
-                items: list.map((e) {
+                items: productController.productList.map((e) {
                   return ProductView(e);
                 }).toList(),
               );
@@ -98,7 +99,7 @@ class HomePage extends StatelessWidget {
                   enlargeCenterPage: false,
                   autoPlay: false,
                 ),
-                items: list.map((e) {
+                items: productController.productList.map((e) {
                   return ProductView(e);
                 }).toList(),
               );
@@ -131,7 +132,7 @@ class HomePage extends StatelessWidget {
                   enlargeCenterPage: false,
                   autoPlay: false,
                 ),
-                items: list.map((e) {
+                items: productController.productList.map((e) {
                   return ProductView(e);
                 }).toList(),
               );
@@ -164,7 +165,7 @@ class HomePage extends StatelessWidget {
                   enlargeCenterPage: false,
                   autoPlay: false,
                 ),
-                items: list.map((e) {
+                items: productController.productList.map((e) {
                   return ProductView(e);
                 }).toList(),
               );

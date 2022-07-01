@@ -1,3 +1,4 @@
+import 'package:bestbrand/controllers/product_controller.dart';
 import 'package:bestbrand/pages/account.dart';
 import 'package:bestbrand/pages/cart.dart';
 import 'package:bestbrand/provider/nightmode.dart';
@@ -35,6 +36,8 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final ProductController _ = Get.put(ProductController());
+
     return ScreenUtilInit(
       designSize: const Size(428, 926),
       minTextAdapt: true,
@@ -61,7 +64,7 @@ List<String> titles = [
 ];
 
 List<Widget> pages = [
-  HomePage(productList),
+  HomePage(),
   SearchPage(productList),
   CartPage(productList),
   const AccountPage(),
