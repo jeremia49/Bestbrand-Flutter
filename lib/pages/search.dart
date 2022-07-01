@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:bestbrand/components/product_view.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
+import 'package:get/get.dart';
 
+import '../controllers/product_controller.dart';
 import '../models/product.dart';
 
 class SearchPage extends StatelessWidget {
-  final List<Product> list;
-  const SearchPage(
-    this.list, {
+  const SearchPage({
     Key? key,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final ProductController productController = Get.find();
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       mainAxisAlignment: MainAxisAlignment.start,
@@ -30,7 +30,7 @@ class SearchPage extends StatelessWidget {
         ),
         Expanded(
           child: Padding(
-            padding: EdgeInsets.fromLTRB(5, 2, 5, 0),
+            padding: const EdgeInsets.fromLTRB(5, 2, 5, 0),
             child: Column(
               children: [
                 Row(
@@ -42,18 +42,18 @@ class SearchPage extends StatelessWidget {
                         label: const Text('Filter')),
                     TextButton.icon(
                         onPressed: null,
-                        icon: Icon(Icons.sort_by_alpha_outlined),
-                        label: Text('Sort')),
+                        icon: const Icon(Icons.sort_by_alpha_outlined),
+                        label: const Text('Sort')),
                   ],
                 ),
                 Expanded(
                   child: AlignedGridView.count(
-                    itemCount: list.length,
+                    itemCount: productController.productList.length,
                     crossAxisCount: 2,
                     mainAxisSpacing: 16,
                     crossAxisSpacing: 16,
                     itemBuilder: (context, index) {
-                      return ProductView(list[index]);
+                      return ProductView(productController.productList[index]);
                     },
                   ),
                 )

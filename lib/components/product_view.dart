@@ -1,6 +1,8 @@
+import 'package:bestbrand/controllers/bookmark_controller.dart';
 import 'package:bestbrand/models/product.dart';
 import 'package:bestbrand/pages/detail.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:loading_gifs/loading_gifs.dart';
 import 'package:cached_network_image/cached_network_image.dart';
@@ -13,10 +15,13 @@ final formatCurrency =
 
 class ProductView extends StatelessWidget {
   final Product product;
-  const ProductView(this.product, {Key? key}) : super(key: key);
+  final Widget? additionalWidget;
+  const ProductView(this.product, {Key? key, this.additionalWidget})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final BookmarkController bookmarkController = Get.find();
     return Expanded(
       child: Card(
         color: const Color.fromARGB(255, 244, 255, 247),
@@ -99,16 +104,24 @@ class ProductView extends StatelessWidget {
                                   ],
                                 ),
                               ),
-                              IconButton(
-                                onPressed: () {
-                                  print('added to bookmark');
-                                },
-                                icon: Icon(
-                                  Icons.bookmark_outline,
-                                  size: 20.sp,
-                                  color: Colors.black,
+                              Obx(
+                                () => IconButton(
+                                  onPressed: () {
+                                    bookmarkController.isBookmark(product.id)
+                                        ? bookmarkController
+                                            .removeBookmark(product.id)
+                                        : bookmarkController
+                                            .addBookmark(product.id);
+                                  },
+                                  icon: Icon(
+                                    bookmarkController.isBookmark(product.id)
+                                        ? Icons.bookmark
+                                        : Icons.bookmark_outline,
+                                    size: 20.sp,
+                                    color: Colors.black,
+                                  ),
                                 ),
-                              )
+                              ),
                             ],
                           ),
                           SizedBox(
@@ -171,6 +184,7 @@ class ProductView extends StatelessWidget {
                               ),
                             ],
                           ),
+                          additionalWidget ?? SizedBox.shrink(),
                         ],
                       ),
                     ),

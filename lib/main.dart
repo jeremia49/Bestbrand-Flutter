@@ -1,3 +1,4 @@
+import 'package:bestbrand/controllers/bookmark_controller.dart';
 import 'package:bestbrand/controllers/product_controller.dart';
 import 'package:bestbrand/pages/account.dart';
 import 'package:bestbrand/pages/cart.dart';
@@ -36,7 +37,8 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final ProductController _ = Get.put(ProductController());
+    Get.put(ProductController());
+    Get.put(BookmarkController());
 
     return ScreenUtilInit(
       designSize: const Size(428, 926),
@@ -65,7 +67,7 @@ List<String> titles = [
 
 List<Widget> pages = [
   HomePage(),
-  SearchPage(productList),
+  SearchPage(),
   CartPage(productList),
   const AccountPage(),
 ];

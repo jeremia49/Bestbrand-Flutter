@@ -1,3 +1,4 @@
+import 'package:bestbrand/models/bookmark.dart';
 import 'package:bestbrand/models/product.dart';
 
 List<Product> productList = [
@@ -87,4 +88,9 @@ Kompatible ke semua keyboard Sades
     rating: 4.8,
     ratingCounter: 60,
   ),
+];
+
+List<Bookmark> bookmarkList = [
+  Bookmark(1),
+  Bookmark(3),
 ];

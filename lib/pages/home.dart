@@ -71,7 +71,7 @@ class HomePage extends StatelessWidget {
           SizedBox(
             height: 5.h,
           ),
-          OptionalProduct(),
+          const OptionalProduct(),
           SizedBox(
             height: 15.h,
           ),

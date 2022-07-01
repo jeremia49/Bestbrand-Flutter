@@ -8,6 +8,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:intl/intl.dart';
 import 'package:readmore/readmore.dart';
 
+import '../controllers/bookmark_controller.dart';
 import '../models/product.dart';
 
 final formatCurrency =
@@ -22,6 +23,7 @@ class DetailPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final BookmarkController bookmarkController = Get.find();
     return WillPopScope(
       onWillPop: () {
         SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual,
@@ -92,10 +94,22 @@ class DetailPage extends StatelessWidget {
                         ),
                       ],
                     ),
-                    Icon(
-                      Icons.bookmark,
-                      size: 36.sp.toDouble(),
-                    )
+                    Obx(
+                      () => IconButton(
+                        onPressed: () {
+                          bookmarkController.isBookmark(product.id)
+                              ? bookmarkController.removeBookmark(product.id)
+                              : bookmarkController.addBookmark(product.id);
+                        },
+                        icon: Icon(
+                          bookmarkController.isBookmark(product.id)
+                              ? Icons.bookmark
+                              : Icons.bookmark_outline,
+                          size: 20.sp,
+                          color: Colors.black,
+                        ),
+                      ),
+                    ),
                   ],
                 ),
               ),
