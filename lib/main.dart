@@ -51,7 +51,6 @@ class MyApp extends StatelessWidget {
           title: 'BEST-BRAND',
           theme: ThemeData(
             primarySwatch: Colors.grey,
-            textTheme: Typography.englishLike2018.apply(fontSizeFactor: 1.sp),
           ),
           home: child,
         );

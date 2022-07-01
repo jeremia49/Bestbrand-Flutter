@@ -202,6 +202,13 @@ class DetailPage extends StatelessWidget {
                   trimMode: TrimMode.Line,
                   trimCollapsedText: ' Show more',
                   trimExpandedText: '\nShow less',
+                  style: GoogleFonts.montserrat(
+                    textStyle: const TextStyle(
+                      color: Colors.black,
+                    ),
+                    fontWeight: FontWeight.normal,
+                    fontSize: 14.sp,
+                  ),
                   moreStyle: GoogleFonts.montserrat(
                     textStyle: const TextStyle(
                       color: Colors.red,
@@ -230,8 +237,22 @@ class DetailPage extends StatelessWidget {
                         ),
                         (Route<dynamic> route) => false);
                   },
-                  icon: const Icon(Icons.add_shopping_cart),
-                  label: const Text('Tambah ke Keranjang'),
+                  icon: Icon(
+                    Icons.add_shopping_cart,
+                    color: Colors.white,
+                  ),
+                  label: Text(
+                    'Tambah ke Keranjang',
+                    style: GoogleFonts.montserrat(
+                      textStyle: TextStyle(
+                        color: Colors.white,
+                        fontSize: 12.sp,
+                      ),
+                    ),
+                  ),
+                  style: ElevatedButton.styleFrom(
+                    primary: Colors.blue[700],
+                  ),
                 ),
               ),
               const SizedBox.shrink(),

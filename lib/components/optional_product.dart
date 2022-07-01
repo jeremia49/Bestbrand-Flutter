@@ -19,93 +19,121 @@ class OptionalProduct extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
-          Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Image.asset(
-                'images/4.png',
-                fit: BoxFit.contain,
-                width: 48.w,
-                height: 48.h,
-              ),
-              Text(
-                'Pulsa',
-                textAlign: TextAlign.center,
-                style: GoogleFonts.montserrat(
-                  textStyle: TextStyle(
-                    color: Colors.black,
-                    fontSize: 14.sp,
-                  ),
-                  fontWeight: FontWeight.normal,
+          InkWell(
+            onTap: () {
+              ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                  content:
+                      Text('Mohon maaf, saat ini masih dalam pengembangan')));
+            },
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Image.asset(
+                  'images/4.png',
+                  fit: BoxFit.contain,
+                  width: 48.w,
+                  height: 48.h,
                 ),
-              ),
-            ],
+                Text(
+                  'Pulsa',
+                  textAlign: TextAlign.center,
+                  style: GoogleFonts.montserrat(
+                    textStyle: TextStyle(
+                      color: Colors.black,
+                      fontSize: 14.sp,
+                    ),
+                    fontWeight: FontWeight.normal,
+                  ),
+                ),
+              ],
+            ),
           ),
-          Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Image.asset(
-                'images/5.png',
-                fit: BoxFit.contain,
-                width: 48.w,
-                height: 48.h,
-              ),
-              Text(
-                'PLN',
-                textAlign: TextAlign.center,
-                style: GoogleFonts.montserrat(
-                  textStyle: TextStyle(
-                    color: Colors.black,
-                    fontSize: 14.sp,
-                  ),
-                  fontWeight: FontWeight.normal,
+          InkWell(
+            onTap: () {
+              ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                  content:
+                      Text('Mohon maaf, saat ini masih dalam pengembangan')));
+            },
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Image.asset(
+                  'images/5.png',
+                  fit: BoxFit.contain,
+                  width: 48.w,
+                  height: 48.h,
                 ),
-              ),
-            ],
+                Text(
+                  'PLN',
+                  textAlign: TextAlign.center,
+                  style: GoogleFonts.montserrat(
+                    textStyle: TextStyle(
+                      color: Colors.black,
+                      fontSize: 14.sp,
+                    ),
+                    fontWeight: FontWeight.normal,
+                  ),
+                ),
+              ],
+            ),
           ),
-          Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Image.asset(
-                'images/6.png',
-                fit: BoxFit.contain,
-                width: 48.w,
-                height: 48.h,
-              ),
-              Text(
-                'BPJS',
-                textAlign: TextAlign.center,
-                style: GoogleFonts.montserrat(
-                  textStyle: TextStyle(
-                    color: Colors.black,
-                    fontSize: 14.sp,
-                  ),
-                  fontWeight: FontWeight.normal,
+          InkWell(
+            onTap: () {
+              ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                  content:
+                      Text('Mohon maaf, saat ini masih dalam pengembangan')));
+            },
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Image.asset(
+                  'images/6.png',
+                  fit: BoxFit.contain,
+                  width: 48.w,
+                  height: 48.h,
                 ),
-              ),
-            ],
+                Text(
+                  'BPJS',
+                  textAlign: TextAlign.center,
+                  style: GoogleFonts.montserrat(
+                    textStyle: TextStyle(
+                      color: Colors.black,
+                      fontSize: 14.sp,
+                    ),
+                    fontWeight: FontWeight.normal,
+                  ),
+                ),
+              ],
+            ),
           ),
-          Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Image.asset(
-                'images/7.png',
-                fit: BoxFit.contain,
-                width: 48.w,
-                height: 48.h,
-              ),
-              Text(
-                'PDAM',
-                textAlign: TextAlign.center,
-                style: GoogleFonts.montserrat(
-                  textStyle: TextStyle(
-                    color: Colors.black,
-                    fontSize: 14.sp,
-                  ),
-                  fontWeight: FontWeight.normal,
+          InkWell(
+            onTap: () {
+              ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                  content:
+                      Text('Mohon maaf, saat ini masih dalam pengembangan')));
+            },
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Image.asset(
+                  'images/7.png',
+                  fit: BoxFit.contain,
+                  width: 48.w,
+                  height: 48.h,
                 ),
-              ),
-            ],
+                Text(
+                  'PDAM',
+                  textAlign: TextAlign.center,
+                  style: GoogleFonts.montserrat(
+                    textStyle: TextStyle(
+                      color: Colors.black,
+                      fontSize: 14.sp,
+                    ),
+                    fontWeight: FontWeight.normal,
+                  ),
+                ),
+              ],
+            ),
           ),
         ],
       ),
