@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../components/product_view.dart';
 import '../models/product.dart';
@@ -12,40 +14,42 @@ class BookmarkPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Bookmark'),
-      ),
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: [
-          TextField(
-            decoration: InputDecoration(
-              prefixIcon: Icon(
-                Icons.search,
-                color: Colors.black,
-              ),
-              border: OutlineInputBorder(),
+        toolbarHeight: 60.h,
+        centerTitle: true,
+        title: Text(
+          'BOOKMARK',
+          textAlign: TextAlign.center,
+          style: GoogleFonts.montserrat(
+            textStyle: const TextStyle(
+              color: Colors.black87,
             ),
+            fontWeight: FontWeight.w900,
           ),
-          Expanded(
-            child: Padding(
-              padding: EdgeInsets.fromLTRB(5, 2, 5, 0),
-              child: Column(
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      TextButton.icon(
-                          onPressed: null,
-                          icon: Icon(Icons.filter_alt_outlined),
-                          label: Text('Filter')),
-                      TextButton.icon(
-                          onPressed: null,
-                          icon: Icon(Icons.sort_by_alpha_outlined),
-                          label: Text('Sort')),
-                    ],
-                  ),
-                  Expanded(
+        ),
+      ),
+      body: Container(
+        padding: EdgeInsets.all(20),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            Text(
+              'Bookmark anda',
+              style: GoogleFonts.montserrat(
+                textStyle: const TextStyle(
+                  color: Colors.black,
+                ),
+                fontWeight: FontWeight.bold,
+                fontSize: 14.sp,
+              ),
+            ),
+            SizedBox(
+              height: 10.h,
+            ),
+            Expanded(
+              child: Padding(
+                  padding: EdgeInsets.fromLTRB(5, 2, 5, 0),
+                  child: Expanded(
                     child: AlignedGridView.count(
                       itemCount: list.length,
                       crossAxisCount: 2,
@@ -55,12 +59,10 @@ class BookmarkPage extends StatelessWidget {
                         return ProductView(list[index]);
                       },
                     ),
-                  )
-                ],
-              ),
+                  )),
             ),
-          )
-        ],
+          ],
+        ),
       ),
     );
   }

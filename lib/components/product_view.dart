@@ -62,7 +62,8 @@ class ProductView extends StatelessWidget {
                         cupertinoActivityIndicator,
                         fit: BoxFit.contain,
                       ),
-                      errorWidget: (context, url, error) => Icon(Icons.error),
+                      errorWidget: (context, url, error) =>
+                          const Icon(Icons.error),
                     ),
                   );
                 }),

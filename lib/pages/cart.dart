@@ -35,13 +35,13 @@ class CartPage extends StatelessWidget {
             leading: CachedNetworkImage(
               imageUrl: list[item].imageUrl[0],
               imageBuilder: (context, imageProvider) => SizedBox(
-                height: 100,
-                width: 100,
+                height: 100.h,
+                width: 100.w,
                 child: Container(
                   decoration: BoxDecoration(
                     image: DecorationImage(
                       image: imageProvider,
-                      fit: BoxFit.fill,
+                      fit: BoxFit.contain,
                     ),
                   ),
                 ),
@@ -53,7 +53,16 @@ class CartPage extends StatelessWidget {
               ),
               errorWidget: (context, url, error) => const Icon(Icons.error),
             ),
-            title: Text(list[item].name),
+            title: Text(
+              list[item].name,
+              style: GoogleFonts.montserrat(
+                textStyle: const TextStyle(
+                  color: Colors.black,
+                ),
+                fontWeight: FontWeight.normal,
+                fontSize: 14.sp,
+              ),
+            ),
             trailing: IconButton(
               icon: const Icon(Icons.delete),
               onPressed: () {},

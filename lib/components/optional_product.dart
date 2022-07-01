@@ -11,7 +11,7 @@ class OptionalProduct extends StatelessWidget {
       width: 394.w,
       height: 96.h,
       decoration: BoxDecoration(
-        color: Color.fromARGB(0xF, 0x9, 0xF, 0x9),
+        color: const Color.fromARGB(0xF, 0x9, 0xF, 0x9),
         borderRadius: BorderRadius.all(
           Radius.circular(10.r),
         ),

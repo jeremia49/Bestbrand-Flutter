@@ -1,7 +1,9 @@
 import 'package:bestbrand/main.dart';
 import 'package:bestbrand/pages/bookmark.dart';
 import 'package:bestbrand/pages/setting.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 const List<String> list = [
   'Pengaturan',
@@ -49,6 +51,25 @@ class AccountPage extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.stretch,
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
+        Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Icon(Icons.account_circle_rounded, size: 120.sp),
+            Text(
+              'UserAccount',
+              style: GoogleFonts.montserrat(
+                textStyle: TextStyle(
+                  color: Colors.black,
+                  fontSize: 16.sp,
+                ),
+                fontWeight: FontWeight.w600,
+              ),
+            ),
+          ],
+        ),
+        SizedBox(
+          height: 50.h,
+        ),
         Expanded(
             child: ListView.separated(
           separatorBuilder: (context, index) => Divider(
@@ -59,7 +80,16 @@ class AccountPage extends StatelessWidget {
             onTap: () {
               action(context, item);
             },
-            title: Text(list[item]),
+            title: Text(
+              list[item],
+              style: GoogleFonts.montserrat(
+                textStyle: TextStyle(
+                  color: Colors.black,
+                  fontSize: 14.sp,
+                ),
+                fontWeight: FontWeight.normal,
+              ),
+            ),
             trailing: IconButton(
               icon: const Icon(Icons.navigate_next),
               onPressed: () {

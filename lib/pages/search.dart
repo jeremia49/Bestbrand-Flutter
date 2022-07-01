@@ -17,8 +17,9 @@ class SearchPage extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       mainAxisAlignment: MainAxisAlignment.start,
+      mainAxisSize: MainAxisSize.max,
       children: [
-        TextField(
+        const TextField(
           decoration: InputDecoration(
             prefixIcon: Icon(
               Icons.search,
@@ -37,8 +38,8 @@ class SearchPage extends StatelessWidget {
                   children: [
                     TextButton.icon(
                         onPressed: null,
-                        icon: Icon(Icons.filter_alt_outlined),
-                        label: Text('Filter')),
+                        icon: const Icon(Icons.filter_alt_outlined),
+                        label: const Text('Filter')),
                     TextButton.icon(
                         onPressed: null,
                         icon: Icon(Icons.sort_by_alpha_outlined),

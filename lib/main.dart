@@ -147,7 +147,6 @@ List<String> titles = [
   'PENCARIAN',
   'CART',
   'AKUNKU',
-  'BOOKMARK',
 ];
 
 List<Widget> pages = [
@@ -164,6 +163,7 @@ class MyHomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        toolbarHeight: 60.h,
         centerTitle: true,
         title: Text(
           titles[context.watch<MenuProvider>().menu],
@@ -199,6 +199,7 @@ class MyHomePage extends StatelessWidget {
         backgroundColor: Colors.grey,
         selectedItemColor: Colors.blue,
         unselectedItemColor: Colors.black,
+        showUnselectedLabels: true,
       ),
     );
   }
