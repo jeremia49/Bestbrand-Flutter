@@ -1,6 +1,8 @@
+import 'package:bestbrand/provider/nightmode.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:provider/provider.dart';
 
 class SettingPage extends StatelessWidget {
   const SettingPage({Key? key}) : super(key: key);
@@ -8,7 +10,13 @@ class SettingPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: context.watch<NightModeProvider>().nightmode
+          ? Colors.black
+          : Colors.white,
       appBar: AppBar(
+        backgroundColor: context.watch<NightModeProvider>().nightmode
+            ? Color.fromARGB(255, 99, 88, 88)
+            : Color.fromARGB(0xF, 0x9, 0xF, 0x9),
         toolbarHeight: 60.h,
         centerTitle: true,
         title: Text(
@@ -32,17 +40,21 @@ class SettingPage extends StatelessWidget {
                   'Dark Mode',
                   style: GoogleFonts.montserrat(
                     textStyle: TextStyle(
-                      color: Colors.black,
+                      color: context.watch<NightModeProvider>().nightmode
+                          ? Colors.white
+                          : Colors.black,
                       fontSize: 16.sp,
                     ),
                     fontWeight: FontWeight.normal,
                   ),
                 ),
-                Switch(
-                  value: false,
-                  onChanged: (value) {
-                    print(value);
-                  },
+                Builder(
+                  builder: (context) => Switch(
+                    value: context.watch<NightModeProvider>().nightmode,
+                    onChanged: (value) {
+                      context.read<NightModeProvider>().setNightMode(value);
+                    },
+                  ),
                 ),
               ],
             )

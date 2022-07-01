@@ -1,5 +1,6 @@
 import 'package:bestbrand/pages/account.dart';
 import 'package:bestbrand/pages/cart.dart';
+import 'package:bestbrand/provider/nightmode.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:bestbrand/pages/home.dart';
 import 'package:bestbrand/pages/search.dart';
@@ -22,6 +23,7 @@ void main() {
     MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (_) => MenuProvider()),
+        ChangeNotifierProvider(create: (_) => NightModeProvider()),
       ],
       child: const MyApp(),
     ),
@@ -71,6 +73,9 @@ class MyHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: context.watch<NightModeProvider>().nightmode
+          ? Colors.black
+          : Colors.white,
       appBar: AppBar(
         toolbarHeight: 60.h,
         centerTitle: true,
@@ -78,13 +83,17 @@ class MyHomePage extends StatelessWidget {
           titles[context.watch<MenuProvider>().menu],
           textAlign: TextAlign.center,
           style: GoogleFonts.montserrat(
-            textStyle: const TextStyle(
-              color: Colors.black87,
+            textStyle: TextStyle(
+              color: context.watch<NightModeProvider>().nightmode
+                  ? Colors.white
+                  : Colors.black87,
             ),
             fontWeight: FontWeight.w900,
           ),
         ),
-        backgroundColor: Color.fromARGB(0xF, 0x9, 0xF, 0x9),
+        backgroundColor: context.watch<NightModeProvider>().nightmode
+            ? Color.fromARGB(255, 99, 88, 88)
+            : Color.fromARGB(0xF, 0x9, 0xF, 0x9),
       ),
       body: SafeArea(
         child: Container(

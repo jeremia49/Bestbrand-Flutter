@@ -4,6 +4,9 @@ import 'package:bestbrand/pages/setting.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:provider/provider.dart';
+
+import '../provider/nightmode.dart';
 
 const List<String> list = [
   'Pengaturan',
@@ -54,12 +57,20 @@ class AccountPage extends StatelessWidget {
         Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Icon(Icons.account_circle_rounded, size: 120.sp),
+            Icon(
+              Icons.account_circle_rounded,
+              size: 120.sp,
+              color: context.watch<NightModeProvider>().nightmode
+                  ? Colors.white
+                  : Colors.black,
+            ),
             Text(
               'UserAccount',
               style: GoogleFonts.montserrat(
                 textStyle: TextStyle(
-                  color: Colors.black,
+                  color: context.watch<NightModeProvider>().nightmode
+                      ? Colors.white
+                      : Colors.black,
                   fontSize: 16.sp,
                 ),
                 fontWeight: FontWeight.w600,
@@ -74,7 +85,9 @@ class AccountPage extends StatelessWidget {
             child: ListView.separated(
           separatorBuilder: (context, index) => Divider(
             height: 20,
-            color: Colors.black,
+            color: context.watch<NightModeProvider>().nightmode
+                ? Colors.white
+                : Colors.black,
           ),
           itemBuilder: (context, item) => ListTile(
             onTap: () {
@@ -84,7 +97,9 @@ class AccountPage extends StatelessWidget {
               list[item],
               style: GoogleFonts.montserrat(
                 textStyle: TextStyle(
-                  color: Colors.black,
+                  color: context.watch<NightModeProvider>().nightmode
+                      ? Colors.white
+                      : Colors.black,
                   fontSize: 14.sp,
                 ),
                 fontWeight: FontWeight.normal,
