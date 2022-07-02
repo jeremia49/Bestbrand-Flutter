@@ -4,9 +4,11 @@ import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 
 import '../controllers/product_controller.dart';
 import '../models/product.dart';
+import '../provider/nightmode.dart';
 
 class SearchPage extends StatefulWidget {
   SearchPage({
@@ -75,16 +77,32 @@ class _SearchPageState extends State<SearchPage> {
       children: [
         TextField(
           decoration: InputDecoration(
-              prefixIcon: Icon(
-                Icons.search,
-                color: Colors.black,
-                size: 20.sp,
-              ),
-              border: const OutlineInputBorder(),
-              hintText: 'Ketik produk yang anda cari ...'),
+            hintStyle: TextStyle(
+              color: context.watch<NightModeProvider>().nightmode
+                  ? const Color.fromARGB(255, 202, 193, 193)
+                  : const Color.fromARGB(255, 136, 130, 130),
+            ),
+            prefixIcon: Icon(
+              Icons.search,
+              color: context.watch<NightModeProvider>().nightmode
+                  ? Colors.white
+                  : Colors.black,
+              size: 20.sp,
+            ),
+            enabledBorder: OutlineInputBorder(
+              borderSide: BorderSide(
+                  color: context.watch<NightModeProvider>().nightmode
+                      ? const Color.fromARGB(255, 197, 193, 193)
+                      : const Color.fromARGB(255, 134, 131, 131),
+                  width: 1.0),
+            ),
+            hintText: 'Ketik produk yang anda cari ...',
+          ),
           style: GoogleFonts.montserrat(
             textStyle: TextStyle(
-              color: Colors.black,
+              color: context.watch<NightModeProvider>().nightmode
+                  ? Colors.white
+                  : Colors.black,
               fontSize: 15.sp,
             ),
             fontWeight: FontWeight.normal,
@@ -110,13 +128,19 @@ class _SearchPageState extends State<SearchPage> {
                       onPressed: () {
                         showModalBottomSheet(
                           context: context,
+                          backgroundColor: Provider.of<NightModeProvider>(
+                                      context,
+                                      listen: false)
+                                  .nightmode
+                              ? const Color.fromARGB(255, 63, 61, 61)
+                              : Colors.white,
                           shape: const RoundedRectangleBorder(
                               borderRadius: BorderRadius.vertical(
                             top: Radius.circular(25),
                           )),
                           builder: (context) => Container(
                             width: double.infinity,
-                            padding: EdgeInsets.all(20),
+                            padding: const EdgeInsets.all(20),
                             child: Column(
                               mainAxisSize: MainAxisSize.min,
                               children: [
@@ -124,7 +148,11 @@ class _SearchPageState extends State<SearchPage> {
                                   'Filter berdasarkan :',
                                   style: GoogleFonts.montserrat(
                                     textStyle: TextStyle(
-                                      color: Colors.black,
+                                      color: context
+                                              .watch<NightModeProvider>()
+                                              .nightmode
+                                          ? Colors.white
+                                          : Colors.black,
                                       fontSize: 18.sp,
                                     ),
                                     fontWeight: FontWeight.bold,
@@ -141,7 +169,11 @@ class _SearchPageState extends State<SearchPage> {
                                         'Diskon',
                                         style: GoogleFonts.montserrat(
                                           textStyle: TextStyle(
-                                            color: Colors.black,
+                                            color: context
+                                                    .watch<NightModeProvider>()
+                                                    .nightmode
+                                                ? Colors.white
+                                                : Colors.black,
                                             fontSize: 15.sp,
                                           ),
                                           fontWeight: FontWeight.normal,
@@ -167,7 +199,11 @@ class _SearchPageState extends State<SearchPage> {
                                         'Keyboard',
                                         style: GoogleFonts.montserrat(
                                           textStyle: TextStyle(
-                                            color: Colors.black,
+                                            color: context
+                                                    .watch<NightModeProvider>()
+                                                    .nightmode
+                                                ? Colors.white
+                                                : Colors.black,
                                             fontSize: 15.sp,
                                           ),
                                           fontWeight: FontWeight.normal,
@@ -193,7 +229,11 @@ class _SearchPageState extends State<SearchPage> {
                                         'Kursi',
                                         style: GoogleFonts.montserrat(
                                           textStyle: TextStyle(
-                                            color: Colors.black,
+                                            color: context
+                                                    .watch<NightModeProvider>()
+                                                    .nightmode
+                                                ? Colors.white
+                                                : Colors.black,
                                             fontSize: 15.sp,
                                           ),
                                           fontWeight: FontWeight.normal,
@@ -220,13 +260,17 @@ class _SearchPageState extends State<SearchPage> {
                       icon: Icon(
                         Icons.filter_alt_outlined,
                         size: 17.sp,
-                        color: Colors.black,
+                        color: context.watch<NightModeProvider>().nightmode
+                            ? Colors.white
+                            : Colors.black,
                       ),
                       label: Text(
                         'Filter',
                         style: GoogleFonts.montserrat(
                           textStyle: TextStyle(
-                            color: Colors.black,
+                            color: context.watch<NightModeProvider>().nightmode
+                                ? Colors.white
+                                : Colors.black,
                             fontSize: 15.sp,
                           ),
                           fontWeight: FontWeight.bold,
@@ -237,13 +281,19 @@ class _SearchPageState extends State<SearchPage> {
                       onPressed: () {
                         showModalBottomSheet(
                           context: context,
+                          backgroundColor: Provider.of<NightModeProvider>(
+                                      context,
+                                      listen: false)
+                                  .nightmode
+                              ? const Color.fromARGB(255, 63, 61, 61)
+                              : Colors.white,
                           shape: const RoundedRectangleBorder(
                               borderRadius: BorderRadius.vertical(
                             top: Radius.circular(25),
                           )),
                           builder: (context) => Container(
                             width: double.infinity,
-                            padding: EdgeInsets.all(20),
+                            padding: const EdgeInsets.all(20),
                             child: Column(
                               mainAxisSize: MainAxisSize.min,
                               children: [
@@ -251,7 +301,11 @@ class _SearchPageState extends State<SearchPage> {
                                   'Sorting berdasarkan :',
                                   style: GoogleFonts.montserrat(
                                     textStyle: TextStyle(
-                                      color: Colors.black,
+                                      color: context
+                                              .watch<NightModeProvider>()
+                                              .nightmode
+                                          ? Colors.white
+                                          : Colors.black,
                                       fontSize: 18.sp,
                                     ),
                                     fontWeight: FontWeight.bold,
@@ -268,7 +322,11 @@ class _SearchPageState extends State<SearchPage> {
                                         'Nama',
                                         style: GoogleFonts.montserrat(
                                           textStyle: TextStyle(
-                                            color: Colors.black,
+                                            color: context
+                                                    .watch<NightModeProvider>()
+                                                    .nightmode
+                                                ? Colors.white
+                                                : Colors.black,
                                             fontSize: 15.sp,
                                           ),
                                           fontWeight: FontWeight.normal,
@@ -294,7 +352,11 @@ class _SearchPageState extends State<SearchPage> {
                                         'Harga',
                                         style: GoogleFonts.montserrat(
                                           textStyle: TextStyle(
-                                            color: Colors.black,
+                                            color: context
+                                                    .watch<NightModeProvider>()
+                                                    .nightmode
+                                                ? Colors.white
+                                                : Colors.black,
                                             fontSize: 15.sp,
                                           ),
                                           fontWeight: FontWeight.normal,
@@ -320,7 +382,11 @@ class _SearchPageState extends State<SearchPage> {
                                   'Secara :',
                                   style: GoogleFonts.montserrat(
                                     textStyle: TextStyle(
-                                      color: Colors.black,
+                                      color: context
+                                              .watch<NightModeProvider>()
+                                              .nightmode
+                                          ? Colors.white
+                                          : Colors.black,
                                       fontSize: 18.sp,
                                     ),
                                     fontWeight: FontWeight.bold,
@@ -334,7 +400,11 @@ class _SearchPageState extends State<SearchPage> {
                                         'Menaik',
                                         style: GoogleFonts.montserrat(
                                           textStyle: TextStyle(
-                                            color: Colors.black,
+                                            color: context
+                                                    .watch<NightModeProvider>()
+                                                    .nightmode
+                                                ? Colors.white
+                                                : Colors.black,
                                             fontSize: 15.sp,
                                           ),
                                           fontWeight: FontWeight.normal,
@@ -360,7 +430,11 @@ class _SearchPageState extends State<SearchPage> {
                                         'Menurun',
                                         style: GoogleFonts.montserrat(
                                           textStyle: TextStyle(
-                                            color: Colors.black,
+                                            color: context
+                                                    .watch<NightModeProvider>()
+                                                    .nightmode
+                                                ? Colors.white
+                                                : Colors.black,
                                             fontSize: 15.sp,
                                           ),
                                           fontWeight: FontWeight.normal,
@@ -387,13 +461,17 @@ class _SearchPageState extends State<SearchPage> {
                       icon: Icon(
                         Icons.sort_by_alpha_outlined,
                         size: 18.sp,
-                        color: Colors.black,
+                        color: context.watch<NightModeProvider>().nightmode
+                            ? Colors.white
+                            : Colors.black,
                       ),
                       label: Text(
                         'Sort',
                         style: GoogleFonts.montserrat(
                           textStyle: TextStyle(
-                            color: Colors.black,
+                            color: context.watch<NightModeProvider>().nightmode
+                                ? Colors.white
+                                : Colors.black,
                             fontSize: 15.sp,
                           ),
                           fontWeight: FontWeight.bold,

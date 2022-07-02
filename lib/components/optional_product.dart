@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:provider/provider.dart';
+
+import '../provider/nightmode.dart';
 
 class OptionalProduct extends StatelessWidget {
   OptionalProduct({Key? key}) : super(key: key);
@@ -11,7 +14,9 @@ class OptionalProduct extends StatelessWidget {
       width: 394.w,
       height: 96.h,
       decoration: BoxDecoration(
-        color: const Color.fromARGB(0xF, 0x9, 0xF, 0x9),
+        color: context.watch<NightModeProvider>().nightmode
+            ? const Color.fromARGB(255, 53, 51, 51)
+            : const Color.fromARGB(0xF, 0x9, 0xF, 0x9),
         borderRadius: BorderRadius.all(
           Radius.circular(10.r),
         ),
@@ -39,7 +44,9 @@ class OptionalProduct extends StatelessWidget {
                   textAlign: TextAlign.center,
                   style: GoogleFonts.montserrat(
                     textStyle: TextStyle(
-                      color: Colors.black,
+                      color: context.watch<NightModeProvider>().nightmode
+                          ? Colors.white
+                          : Colors.black,
                       fontSize: 14.sp,
                     ),
                     fontWeight: FontWeight.normal,
@@ -68,7 +75,9 @@ class OptionalProduct extends StatelessWidget {
                   textAlign: TextAlign.center,
                   style: GoogleFonts.montserrat(
                     textStyle: TextStyle(
-                      color: Colors.black,
+                      color: context.watch<NightModeProvider>().nightmode
+                          ? Colors.white
+                          : Colors.black,
                       fontSize: 14.sp,
                     ),
                     fontWeight: FontWeight.normal,
@@ -97,7 +106,9 @@ class OptionalProduct extends StatelessWidget {
                   textAlign: TextAlign.center,
                   style: GoogleFonts.montserrat(
                     textStyle: TextStyle(
-                      color: Colors.black,
+                      color: context.watch<NightModeProvider>().nightmode
+                          ? Colors.white
+                          : Colors.black,
                       fontSize: 14.sp,
                     ),
                     fontWeight: FontWeight.normal,
@@ -126,7 +137,9 @@ class OptionalProduct extends StatelessWidget {
                   textAlign: TextAlign.center,
                   style: GoogleFonts.montserrat(
                     textStyle: TextStyle(
-                      color: Colors.black,
+                      color: context.watch<NightModeProvider>().nightmode
+                          ? Colors.white
+                          : Colors.black,
                       fontSize: 14.sp,
                     ),
                     fontWeight: FontWeight.normal,

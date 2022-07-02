@@ -4,10 +4,12 @@ import 'package:bestbrand/components/product_view.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:provider/provider.dart';
 
 import '../components/optional_product.dart';
 import '../controllers/product_controller.dart';
 import '../models/product.dart';
+import '../provider/nightmode.dart';
 
 class HomePage extends StatelessWidget {
   HomePage({
@@ -29,7 +31,9 @@ class HomePage extends StatelessWidget {
             textAlign: TextAlign.left,
             style: GoogleFonts.montserrat(
               textStyle: TextStyle(
-                color: Colors.black,
+                color: context.watch<NightModeProvider>().nightmode
+                    ? Colors.white
+                    : Colors.black,
                 fontSize: 18.sp,
               ),
               fontWeight: FontWeight.w700,
@@ -65,7 +69,9 @@ class HomePage extends StatelessWidget {
             textAlign: TextAlign.left,
             style: GoogleFonts.montserrat(
               textStyle: TextStyle(
-                color: Colors.black,
+                color: context.watch<NightModeProvider>().nightmode
+                    ? Colors.white
+                    : Colors.black,
                 fontSize: 18.sp,
               ),
               fontWeight: FontWeight.w700,
@@ -83,7 +89,9 @@ class HomePage extends StatelessWidget {
             textAlign: TextAlign.left,
             style: GoogleFonts.montserrat(
               textStyle: TextStyle(
-                color: Colors.black,
+                color: context.watch<NightModeProvider>().nightmode
+                    ? Colors.white
+                    : Colors.black,
                 fontSize: 18.sp,
               ),
               fontWeight: FontWeight.w700,
@@ -119,7 +127,9 @@ class HomePage extends StatelessWidget {
             textAlign: TextAlign.left,
             style: GoogleFonts.montserrat(
               textStyle: TextStyle(
-                color: Colors.black,
+                color: context.watch<NightModeProvider>().nightmode
+                    ? Colors.white
+                    : Colors.black,
                 fontSize: 18.sp,
               ),
               fontWeight: FontWeight.w700,

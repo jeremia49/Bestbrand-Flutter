@@ -80,52 +80,61 @@ class MyHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: context.watch<NightModeProvider>().nightmode
-          ? Colors.black
-          : Colors.white,
-      appBar: AppBar(
-        toolbarHeight: 60.h,
-        centerTitle: true,
-        title: Text(
-          titles[context.watch<MenuProvider>().menu],
-          textAlign: TextAlign.center,
-          style: GoogleFonts.montserrat(
-            textStyle: TextStyle(
-              color: context.watch<NightModeProvider>().nightmode
-                  ? Colors.white
-                  : Colors.black87,
+        backgroundColor: context.watch<NightModeProvider>().nightmode
+            ? Colors.black
+            : Colors.white,
+        appBar: AppBar(
+          toolbarHeight: 60.h,
+          centerTitle: true,
+          title: Text(
+            titles[context.watch<MenuProvider>().menu],
+            textAlign: TextAlign.center,
+            style: GoogleFonts.montserrat(
+              textStyle: TextStyle(
+                color: context.watch<NightModeProvider>().nightmode
+                    ? Colors.white
+                    : Colors.black87,
+              ),
+              fontWeight: FontWeight.w900,
             ),
-            fontWeight: FontWeight.w900,
+          ),
+          backgroundColor: context.watch<NightModeProvider>().nightmode
+              ? const Color.fromARGB(255, 99, 88, 88)
+              : const Color.fromARGB(0xF, 0x9, 0xF, 0x9),
+        ),
+        body: SafeArea(
+          child: Container(
+            padding: const EdgeInsets.all(10),
+            child: pages[context.watch<MenuProvider>().menu],
           ),
         ),
-        backgroundColor: context.watch<NightModeProvider>().nightmode
-            ? Color.fromARGB(255, 99, 88, 88)
-            : Color.fromARGB(0xF, 0x9, 0xF, 0x9),
-      ),
-      body: SafeArea(
-        child: Container(
-          padding: const EdgeInsets.all(10),
-          child: pages[context.watch<MenuProvider>().menu],
-        ),
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-        items: const [
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
-          BottomNavigationBarItem(icon: Icon(Icons.search), label: 'Search'),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.shopping_cart), label: 'Cart'),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.account_circle_rounded), label: 'My Account'),
-        ],
-        onTap: (int e) {
-          context.read<MenuProvider>().setMenu(e);
-        },
-        currentIndex: context.watch<MenuProvider>().menu,
-        backgroundColor: Colors.grey,
-        selectedItemColor: Colors.blue,
-        unselectedItemColor: Colors.black,
-        showUnselectedLabels: true,
-      ),
-    );
+        bottomNavigationBar: Theme(
+          data: Theme.of(context).copyWith(
+            canvasColor: context.watch<NightModeProvider>().nightmode
+                ? Colors.black
+                : Colors.white,
+          ),
+          child: BottomNavigationBar(
+            items: const [
+              BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
+              BottomNavigationBarItem(
+                  icon: Icon(Icons.search), label: 'Search'),
+              BottomNavigationBarItem(
+                  icon: Icon(Icons.shopping_cart), label: 'Cart'),
+              BottomNavigationBarItem(
+                  icon: Icon(Icons.account_circle_rounded),
+                  label: 'My Account'),
+            ],
+            onTap: (int e) {
+              context.read<MenuProvider>().setMenu(e);
+            },
+            currentIndex: context.watch<MenuProvider>().menu,
+            selectedItemColor: Colors.blue,
+            unselectedItemColor: context.watch<NightModeProvider>().nightmode
+                ? Colors.white
+                : Colors.black,
+            showUnselectedLabels: true,
+          ),
+        ));
   }
 }

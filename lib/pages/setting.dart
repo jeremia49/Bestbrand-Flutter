@@ -15,15 +15,17 @@ class SettingPage extends StatelessWidget {
           : Colors.white,
       appBar: AppBar(
         backgroundColor: context.watch<NightModeProvider>().nightmode
-            ? Color.fromARGB(255, 99, 88, 88)
-            : Color.fromARGB(0xF, 0x9, 0xF, 0x9),
+            ? const Color.fromARGB(255, 99, 88, 88)
+            : const Color.fromARGB(0xF, 0x9, 0xF, 0x9),
         toolbarHeight: 60.h,
         centerTitle: true,
         title: Text(
           'PENGATURAN',
           style: GoogleFonts.montserrat(
-            textStyle: const TextStyle(
-              color: Colors.black87,
+            textStyle: TextStyle(
+              color: context.watch<NightModeProvider>().nightmode
+                  ? Colors.white
+                  : Colors.black87,
             ),
             fontWeight: FontWeight.w900,
           ),

@@ -15,6 +15,7 @@ import '../controllers/bookmark_controller.dart';
 import '../controllers/cart_controller.dart';
 import '../models/product.dart';
 import '../provider/menu.dart';
+import '../provider/nightmode.dart';
 
 final formatCurrency =
     NumberFormat.simpleCurrency(locale: 'id_ID', decimalDigits: 0);
@@ -40,6 +41,9 @@ class DetailPage extends StatelessWidget {
       },
       child: Scaffold(
         appBar: null,
+        backgroundColor: context.watch<NightModeProvider>().nightmode
+            ? Colors.black
+            : Colors.white,
         body: SingleChildScrollView(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
@@ -93,8 +97,11 @@ class DetailPage extends StatelessWidget {
                           '${reviewController.getRating(product.id)} (${reviewController.getRateCount(product.id)})',
                           textAlign: TextAlign.left,
                           style: GoogleFonts.montserrat(
-                            textStyle: const TextStyle(
-                              color: Colors.black,
+                            textStyle: TextStyle(
+                              color:
+                                  context.watch<NightModeProvider>().nightmode
+                                      ? Colors.white
+                                      : Colors.black,
                             ),
                             fontWeight: FontWeight.bold,
                             fontSize: 20.sp.toDouble(),
@@ -114,7 +121,9 @@ class DetailPage extends StatelessWidget {
                               ? Icons.bookmark
                               : Icons.bookmark_outline,
                           size: 20.sp,
-                          color: Colors.black,
+                          color: context.watch<NightModeProvider>().nightmode
+                              ? Colors.white
+                              : Colors.black,
                         ),
                       ),
                     ),
@@ -130,7 +139,9 @@ class DetailPage extends StatelessWidget {
                       textAlign: TextAlign.left,
                       style: GoogleFonts.montserrat(
                         textStyle: TextStyle(
-                          color: Colors.black,
+                          color: context.watch<NightModeProvider>().nightmode
+                              ? Colors.white
+                              : Colors.black,
                           fontSize: 24.sp,
                         ),
                         fontWeight: FontWeight.w400,
@@ -151,8 +162,10 @@ class DetailPage extends StatelessWidget {
                       : formatCurrency.format(product.hargaPromo),
                   textAlign: TextAlign.left,
                   style: GoogleFonts.montserrat(
-                    textStyle: const TextStyle(
-                      color: Colors.black,
+                    textStyle: TextStyle(
+                      color: context.watch<NightModeProvider>().nightmode
+                          ? Colors.white
+                          : Colors.black,
                     ),
                     fontWeight: FontWeight.bold,
                     fontSize: 36.sp,
@@ -167,8 +180,10 @@ class DetailPage extends StatelessWidget {
                       formatCurrency.format(product.harga),
                       textAlign: TextAlign.left,
                       style: GoogleFonts.montserrat(
-                        textStyle: const TextStyle(
-                          color: Colors.black45,
+                        textStyle: TextStyle(
+                          color: context.watch<NightModeProvider>().nightmode
+                              ? Colors.white54
+                              : Colors.black45,
                         ),
                         fontWeight: FontWeight.normal,
                         fontSize: 32.sp,
@@ -186,8 +201,10 @@ class DetailPage extends StatelessWidget {
                   'Deskripsi :',
                   textAlign: TextAlign.left,
                   style: GoogleFonts.montserrat(
-                    textStyle: const TextStyle(
-                      color: Colors.black,
+                    textStyle: TextStyle(
+                      color: context.watch<NightModeProvider>().nightmode
+                          ? Colors.white
+                          : Colors.black,
                     ),
                     fontWeight: FontWeight.w600,
                     fontSize: 16.sp,
@@ -203,8 +220,10 @@ class DetailPage extends StatelessWidget {
                   trimCollapsedText: ' Show more',
                   trimExpandedText: '\nShow less',
                   style: GoogleFonts.montserrat(
-                    textStyle: const TextStyle(
-                      color: Colors.black,
+                    textStyle: TextStyle(
+                      color: context.watch<NightModeProvider>().nightmode
+                          ? Colors.white
+                          : Colors.black,
                     ),
                     fontWeight: FontWeight.normal,
                     fontSize: 14.sp,
@@ -237,7 +256,7 @@ class DetailPage extends StatelessWidget {
                         ),
                         (Route<dynamic> route) => false);
                   },
-                  icon: Icon(
+                  icon: const Icon(
                     Icons.add_shopping_cart,
                     color: Colors.white,
                   ),

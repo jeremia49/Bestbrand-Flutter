@@ -144,6 +144,11 @@ class ReviewView extends StatelessWidget {
               ),
               onPressed: () {
                 showModalBottomSheet(
+                  backgroundColor:
+                      Provider.of<NightModeProvider>(context, listen: false)
+                              .nightmode
+                          ? const Color.fromARGB(255, 63, 61, 61)
+                          : Colors.white,
                   isScrollControlled: true,
                   context: context,
                   shape: const RoundedRectangleBorder(
@@ -157,10 +162,13 @@ class ReviewView extends StatelessWidget {
                       mainAxisSize: MainAxisSize.min,
                       children: [
                         Text(
-                          'Dalam skala 1-5 berapa penilaian produk kami menurut anda',
+                          'Dalam skala 1-5, penilaian produk kami menurut anda ?',
                           style: GoogleFonts.montserrat(
                             textStyle: TextStyle(
-                              color: Colors.black,
+                              color:
+                                  context.watch<NightModeProvider>().nightmode
+                                      ? Colors.white
+                                      : Colors.black,
                               fontSize: 15.sp,
                             ),
                             fontWeight: FontWeight.bold,
@@ -184,7 +192,11 @@ class ReviewView extends StatelessWidget {
                                       stars.toString(),
                                       style: GoogleFonts.montserrat(
                                         textStyle: TextStyle(
-                                          color: Colors.black,
+                                          color: context
+                                                  .watch<NightModeProvider>()
+                                                  .nightmode
+                                              ? Colors.white
+                                              : Colors.black,
                                           fontSize: 14.sp,
                                         ),
                                         fontWeight: FontWeight.bold,
@@ -210,7 +222,10 @@ class ReviewView extends StatelessWidget {
                           'Silahkan masukkan review anda',
                           style: GoogleFonts.montserrat(
                             textStyle: TextStyle(
-                              color: Colors.black,
+                              color:
+                                  context.watch<NightModeProvider>().nightmode
+                                      ? Colors.white
+                                      : Colors.black,
                               fontSize: 15.sp,
                             ),
                             fontWeight: FontWeight.bold,
@@ -233,6 +248,29 @@ class ReviewView extends StatelessWidget {
                                           },
                                         );
                                       },
+                                      decoration: InputDecoration(
+                                        hintStyle: TextStyle(
+                                          color: context
+                                                  .watch<NightModeProvider>()
+                                                  .nightmode
+                                              ? const Color.fromARGB(
+                                                  255, 202, 193, 193)
+                                              : const Color.fromARGB(
+                                                  255, 136, 130, 130),
+                                        ),
+                                        hintText: 'Ketik review anda ',
+                                      ),
+                                      style: GoogleFonts.montserrat(
+                                        textStyle: TextStyle(
+                                          color: context
+                                                  .watch<NightModeProvider>()
+                                                  .nightmode
+                                              ? Colors.white
+                                              : Colors.black,
+                                          fontSize: 15.sp,
+                                        ),
+                                        fontWeight: FontWeight.normal,
+                                      ),
                                     );
                                   }),
                                 ),
@@ -267,7 +305,12 @@ class ReviewView extends StatelessWidget {
                                     ),
                                   );
                                 },
-                                icon: const Icon(Icons.send),
+                                icon: Icon(Icons.send,
+                                    color: context
+                                            .watch<NightModeProvider>()
+                                            .nightmode
+                                        ? Colors.white
+                                        : Colors.black),
                               ),
                             ],
                           ),

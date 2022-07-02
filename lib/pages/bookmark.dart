@@ -3,11 +3,13 @@ import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:provider/provider.dart';
 
 import '../components/product_view.dart';
 import '../controllers/bookmark_controller.dart';
 import '../controllers/product_controller.dart';
 import '../models/product.dart';
+import '../provider/nightmode.dart';
 
 class BookmarkPage extends StatelessWidget {
   BookmarkPage({Key? key}) : super(key: key);
@@ -18,15 +20,23 @@ class BookmarkPage extends StatelessWidget {
     final ProductController productController = Get.find();
 
     return Scaffold(
+      backgroundColor: context.watch<NightModeProvider>().nightmode
+          ? Colors.black
+          : Colors.white,
       appBar: AppBar(
+        backgroundColor: context.watch<NightModeProvider>().nightmode
+            ? const Color.fromARGB(255, 99, 88, 88)
+            : const Color.fromARGB(0xF, 0x9, 0xF, 0x9),
         toolbarHeight: 60.h,
         centerTitle: true,
         title: Text(
           'BOOKMARK',
           textAlign: TextAlign.center,
           style: GoogleFonts.montserrat(
-            textStyle: const TextStyle(
-              color: Colors.black87,
+            textStyle: TextStyle(
+              color: context.watch<NightModeProvider>().nightmode
+                  ? Colors.white
+                  : Colors.black87,
             ),
             fontWeight: FontWeight.w900,
           ),
@@ -41,8 +51,10 @@ class BookmarkPage extends StatelessWidget {
             Text(
               'Bookmark anda',
               style: GoogleFonts.montserrat(
-                textStyle: const TextStyle(
-                  color: Colors.black,
+                textStyle: TextStyle(
+                  color: context.watch<NightModeProvider>().nightmode
+                      ? Colors.white
+                      : Colors.black87,
                 ),
                 fontWeight: FontWeight.bold,
                 fontSize: 14.sp,
@@ -74,7 +86,15 @@ class BookmarkPage extends StatelessWidget {
                                 height: 6.h,
                               ),
                               Text(
-                                  'Bookmarked at : ${bookmarkController.bookmarkList[index].bookmarkedAt}')
+                                'Bookmarked at : ${bookmarkController.bookmarkList[index].bookmarkedAt}',
+                                style: TextStyle(
+                                  color: context
+                                          .watch<NightModeProvider>()
+                                          .nightmode
+                                      ? Colors.white
+                                      : Colors.black,
+                                ),
+                              )
                             ]),
                       );
                     },

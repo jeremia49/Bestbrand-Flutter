@@ -9,8 +9,10 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:intl/intl.dart';
+import 'package:provider/provider.dart';
 
 import '../controllers/review_controller.dart';
+import '../provider/nightmode.dart';
 
 final formatCurrency =
     NumberFormat.simpleCurrency(locale: 'id_ID', decimalDigits: 0);
@@ -27,7 +29,9 @@ class ProductView extends StatelessWidget {
     final ReviewController reviewController = Get.find();
 
     return Card(
-      color: const Color.fromARGB(255, 244, 255, 247),
+      color: context.watch<NightModeProvider>().nightmode
+          ? const Color.fromARGB(255, 53, 51, 51)
+          : const Color.fromARGB(255, 244, 255, 247),
       child: InkWell(
         splashColor: Colors.blue.withAlpha(30),
         onTap: () {
@@ -93,8 +97,12 @@ class ProductView extends StatelessWidget {
                                 product.name,
                                 textAlign: TextAlign.left,
                                 style: GoogleFonts.montserrat(
-                                  textStyle: const TextStyle(
-                                    color: Colors.black,
+                                  textStyle: TextStyle(
+                                    color: context
+                                            .watch<NightModeProvider>()
+                                            .nightmode
+                                        ? Colors.white
+                                        : Colors.black,
                                   ),
                                   fontWeight: FontWeight.normal,
                                 ),
@@ -121,7 +129,11 @@ class ProductView extends StatelessWidget {
                                       ? Icons.bookmark
                                       : Icons.bookmark_outline,
                                   size: 20.sp,
-                                  color: Colors.black,
+                                  color: context
+                                          .watch<NightModeProvider>()
+                                          .nightmode
+                                      ? Colors.white
+                                      : Colors.black,
                                 ),
                               ),
                             ),
@@ -136,8 +148,11 @@ class ProductView extends StatelessWidget {
                               : formatCurrency.format(product.hargaPromo),
                           textAlign: TextAlign.left,
                           style: GoogleFonts.montserrat(
-                            textStyle: const TextStyle(
-                              color: Colors.black,
+                            textStyle: TextStyle(
+                              color:
+                                  context.watch<NightModeProvider>().nightmode
+                                      ? Colors.white
+                                      : Colors.black,
                             ),
                             fontWeight: FontWeight.bold,
                             fontSize: 15.sp,
@@ -152,8 +167,12 @@ class ProductView extends StatelessWidget {
                               formatCurrency.format(product.harga),
                               textAlign: TextAlign.left,
                               style: GoogleFonts.montserrat(
-                                textStyle: const TextStyle(
-                                  color: Colors.black45,
+                                textStyle: TextStyle(
+                                  color: context
+                                          .watch<NightModeProvider>()
+                                          .nightmode
+                                      ? Colors.white54
+                                      : Colors.black45,
                                 ),
                                 fontWeight: FontWeight.normal,
                                 fontSize: 13.sp,
@@ -172,14 +191,18 @@ class ProductView extends StatelessWidget {
                             Icon(
                               Icons.star_outlined,
                               color: Colors.yellow,
-                              size: 14.sp,
+                              size: 16.sp,
                             ),
                             Text(
                               '${reviewController.getRating(product.id)} (${reviewController.getRateCount(product.id)})',
                               textAlign: TextAlign.left,
                               style: GoogleFonts.montserrat(
-                                textStyle: const TextStyle(
-                                  color: Colors.black,
+                                textStyle: TextStyle(
+                                  color: context
+                                          .watch<NightModeProvider>()
+                                          .nightmode
+                                      ? Colors.white
+                                      : Colors.black,
                                 ),
                                 fontWeight: FontWeight.bold,
                                 fontSize: 12.sp,
