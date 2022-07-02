@@ -12,7 +12,7 @@ import '../provider/nightmode.dart';
 
 class ReviewView extends StatelessWidget {
   final int idProduct;
-  double stars = 0;
+  double stars = 1.0;
   String txt = '';
   ReviewView(this.idProduct, {Key? key}) : super(key: key);
 
@@ -206,9 +206,9 @@ class ReviewView extends StatelessWidget {
                                 ),
                                 Slider(
                                     value: stars,
-                                    min: 0.0,
+                                    min: 1.0,
                                     max: 5.0,
-                                    divisions: 5,
+                                    divisions: 4,
                                     onChanged: (selection) {
                                       setState(() {
                                         stars = selection;

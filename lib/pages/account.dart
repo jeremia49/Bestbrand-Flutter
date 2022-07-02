@@ -1,5 +1,6 @@
 import 'package:bestbrand/pages/bookmark.dart';
 import 'package:bestbrand/pages/setting.dart';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -10,7 +11,7 @@ import '../provider/nightmode.dart';
 const List<String> list = [
   'Pengaturan',
   'Bookmark',
-  'Keluar',
+  'Keluar App',
 ];
 
 void action(BuildContext context, int item) {
@@ -32,8 +33,7 @@ void action(BuildContext context, int item) {
       );
       break;
     case 2:
-      ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text('Anda berhasil keluar !')));
+      SystemChannels.platform.invokeMethod('SystemNavigator.pop');
       break;
     default:
   }

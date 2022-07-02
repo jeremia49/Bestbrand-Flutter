@@ -8,6 +8,15 @@ import '../provider/nightmode.dart';
 class OptionalProduct extends StatelessWidget {
   OptionalProduct({Key? key}) : super(key: key);
 
+  void showError(BuildContext context) {
+    ScaffoldMessenger.of(context).showSnackBar(
+      const SnackBar(
+        content: Text(
+            'Mohon maaf, saat ini servernya masih dalam tahap pengembangan'),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -26,9 +35,7 @@ class OptionalProduct extends StatelessWidget {
         children: [
           InkWell(
             onTap: () {
-              ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-                  content:
-                      Text('Mohon maaf, saat ini masih dalam pengembangan')));
+              showError(context);
             },
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -57,9 +64,7 @@ class OptionalProduct extends StatelessWidget {
           ),
           InkWell(
             onTap: () {
-              ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-                  content:
-                      Text('Mohon maaf, saat ini masih dalam pengembangan')));
+              showError(context);
             },
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -88,9 +93,7 @@ class OptionalProduct extends StatelessWidget {
           ),
           InkWell(
             onTap: () {
-              ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-                  content:
-                      Text('Mohon maaf, saat ini masih dalam pengembangan')));
+              showError(context);
             },
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -119,9 +122,7 @@ class OptionalProduct extends StatelessWidget {
           ),
           InkWell(
             onTap: () {
-              ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-                  content:
-                      Text('Mohon maaf, saat ini masih dalam pengembangan')));
+              showError(context);
             },
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,

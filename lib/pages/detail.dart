@@ -248,6 +248,8 @@ class DetailPage extends StatelessWidget {
                 padding: EdgeInsets.fromLTRB(16.w, 10.h, 16.w, 10.h),
                 child: ElevatedButton.icon(
                   onPressed: () {
+                    SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual,
+                        overlays: SystemUiOverlay.values);
                     cartController.addProduct(product.id);
                     context.read<MenuProvider>().setMenu(2);
                     Navigator.of(context).pushAndRemoveUntil(
@@ -275,7 +277,7 @@ class DetailPage extends StatelessWidget {
                 ),
               ),
               const SizedBox.shrink(),
-              ReviewView(product.id)
+              ReviewView(product.id),
             ],
           ),
         ),
