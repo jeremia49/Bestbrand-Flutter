@@ -10,6 +10,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 import 'package:readmore/readmore.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../controllers/bookmark_controller.dart';
 import '../controllers/cart_controller.dart';
@@ -215,7 +216,7 @@ class DetailPage extends StatelessWidget {
                 padding: EdgeInsets.fromLTRB(16.w, 5.h, 16.w, 0),
                 child: ReadMoreText(
                   product.description,
-                  trimLines: 2,
+                  trimLines: 5,
                   trimMode: TrimMode.Line,
                   trimCollapsedText: ' Show more',
                   trimExpandedText: '\nShow less',
@@ -277,7 +278,67 @@ class DetailPage extends StatelessWidget {
                 ),
               ),
               const SizedBox.shrink(),
-              ReviewView(product.id),
+              Padding(
+                padding: EdgeInsets.fromLTRB(16.w, 5.h, 16.w, 0),
+                child: Text(
+                  'Link ke App Lain :',
+                  textAlign: TextAlign.left,
+                  style: GoogleFonts.montserrat(
+                    textStyle: TextStyle(
+                      color: context.watch<NightModeProvider>().nightmode
+                          ? Colors.white
+                          : Colors.black,
+                    ),
+                    fontWeight: FontWeight.w600,
+                    fontSize: 16.sp,
+                  ),
+                ),
+              ),
+              Padding(
+                padding: EdgeInsets.fromLTRB(16.w, 5.h, 16.w, 0),
+                child: Wrap(
+                  children: product.externalStore.entries
+                      .map((e) => Wrap(
+                            children: [
+                              ActionChip(
+                                label: Text(
+                                  "${e.key[0].toUpperCase()}${e.key.substring(1).toLowerCase()}",
+                                  style: GoogleFonts.montserrat(
+                                    textStyle: TextStyle(
+                                      color: context
+                                              .watch<NightModeProvider>()
+                                              .nightmode
+                                          ? Colors.white
+                                          : Colors.black,
+                                    ),
+                                    fontWeight: FontWeight.normal,
+                                    fontSize: 13.sp,
+                                  ),
+                                ),
+                                onPressed: () async {
+                                  Uri _url = Uri.parse(e.value);
+                                  if (!await launchUrl(_url)) {
+                                    ScaffoldMessenger.of(context).showSnackBar(
+                                      SnackBar(
+                                        content:
+                                            Text('Gagal membuka url $_url'),
+                                      ),
+                                    );
+                                  }
+                                },
+                              ),
+                              SizedBox(
+                                width: 10.w,
+                              ),
+                            ],
+                          ))
+                      .toList(),
+                ),
+              ),
+              Padding(
+                padding: EdgeInsets.fromLTRB(16.w, 5.h, 16.w, 0),
+                child: ReviewView(product.id),
+              ),
             ],
           ),
         ),

@@ -31,19 +31,16 @@ class ReviewView extends StatelessWidget {
               mainAxisSize: MainAxisSize.min,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Text(
-                    'Review Pengguna :',
-                    style: GoogleFonts.montserrat(
-                      textStyle: TextStyle(
-                        color: context.watch<NightModeProvider>().nightmode
-                            ? Colors.white
-                            : Colors.black,
-                        fontSize: 15.sp,
-                      ),
-                      fontWeight: FontWeight.normal,
+                Text(
+                  'Review Pengguna :',
+                  style: GoogleFonts.montserrat(
+                    textStyle: TextStyle(
+                      color: context.watch<NightModeProvider>().nightmode
+                          ? Colors.white
+                          : Colors.black,
+                      fontSize: 16.sp,
                     ),
+                    fontWeight: FontWeight.w600,
                   ),
                 ),
                 Expanded(
@@ -52,71 +49,67 @@ class ReviewView extends StatelessWidget {
                         ? const Center(
                             child: Text('Belum ada data'),
                           )
-                        : Padding(
-                            padding: const EdgeInsets.all(16.0),
-                            child: ListView.separated(
-                              separatorBuilder: (context, index) => Divider(
-                                height: 20,
-                                color:
-                                    context.watch<NightModeProvider>().nightmode
+                        : ListView.separated(
+                            separatorBuilder: (context, index) => Divider(
+                              height: 20,
+                              color:
+                                  context.watch<NightModeProvider>().nightmode
+                                      ? Colors.white
+                                      : Colors.black,
+                            ),
+                            itemBuilder: (context, item) => ListTile(
+                              onTap: () {},
+                              title: Row(
+                                children: [
+                                  Icon(
+                                    Icons.star_outlined,
+                                    color: Colors.yellow,
+                                    size: 20.sp.toDouble(),
+                                  ),
+                                  Wrap(
+                                    children: [
+                                      Text(
+                                        reviewController
+                                            .getReviewById(idProduct)[item]
+                                            .stars
+                                            .toString(),
+                                        softWrap: true,
+                                        style: GoogleFonts.montserrat(
+                                          textStyle: TextStyle(
+                                            color: context
+                                                    .watch<NightModeProvider>()
+                                                    .nightmode
+                                                ? Colors.white
+                                                : Colors.black,
+                                            fontSize: 13.sp,
+                                          ),
+                                          fontWeight: FontWeight.normal,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                              subtitle: Text(
+                                reviewController
+                                    .getReviewById(idProduct)[item]
+                                    .review,
+                                style: GoogleFonts.montserrat(
+                                  textStyle: TextStyle(
+                                    color: context
+                                            .watch<NightModeProvider>()
+                                            .nightmode
                                         ? Colors.white
                                         : Colors.black,
-                              ),
-                              itemBuilder: (context, item) => ListTile(
-                                onTap: () {},
-                                title: Row(
-                                  children: [
-                                    Icon(
-                                      Icons.star_outlined,
-                                      color: Colors.yellow,
-                                      size: 20.sp.toDouble(),
-                                    ),
-                                    Wrap(
-                                      children: [
-                                        Text(
-                                          reviewController
-                                              .getReviewById(idProduct)[item]
-                                              .stars
-                                              .toString(),
-                                          softWrap: true,
-                                          style: GoogleFonts.montserrat(
-                                            textStyle: TextStyle(
-                                              color: context
-                                                      .watch<
-                                                          NightModeProvider>()
-                                                      .nightmode
-                                                  ? Colors.white
-                                                  : Colors.black,
-                                              fontSize: 13.sp,
-                                            ),
-                                            fontWeight: FontWeight.normal,
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ],
-                                ),
-                                subtitle: Text(
-                                  reviewController
-                                      .getReviewById(idProduct)[item]
-                                      .review,
-                                  style: GoogleFonts.montserrat(
-                                    textStyle: TextStyle(
-                                      color: context
-                                              .watch<NightModeProvider>()
-                                              .nightmode
-                                          ? Colors.white
-                                          : Colors.black,
-                                      fontSize: 13.sp,
-                                    ),
-                                    fontWeight: FontWeight.normal,
+                                    fontSize: 13.sp,
                                   ),
+                                  fontWeight: FontWeight.normal,
                                 ),
                               ),
-                              itemCount: reviewController
-                                  .getReviewById(idProduct)
-                                  .length,
                             ),
+                            itemCount: reviewController
+                                .getReviewById(idProduct)
+                                .length,
                           ),
                   ),
                 ),
