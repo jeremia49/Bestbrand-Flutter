@@ -100,7 +100,12 @@ class AccountPage extends StatelessWidget {
                 ),
               ),
               trailing: IconButton(
-                icon: const Icon(Icons.navigate_next),
+                icon: Icon(
+                  Icons.navigate_next,
+                  color: context.watch<NightModeProvider>().nightmode
+                      ? Colors.white
+                      : Colors.black,
+                ),
                 onPressed: () {
                   action(context, item);
                 },
