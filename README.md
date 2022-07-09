@@ -34,6 +34,14 @@ and then run
 flutter build apk
 ```
 
+## Screenshot
+
+HomePage
+![HomePage](https://raw.githubusercontent.com/jeremia49/Bestbrand-Flutter/main/screenshots/home.png)
+
+DetailPage
+![DetailPage](https://raw.githubusercontent.com/jeremia49/Bestbrand-Flutter/main/screenshots/detail.png)
+
 ## License
 
 MIT
